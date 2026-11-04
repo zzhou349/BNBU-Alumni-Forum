@@ -1,0 +1,465 @@
+/* post-detail.wxss */
+.post-detail-container {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding-bottom: 100rpx;
+    box-sizing: border-box;
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  }
+  
+  /* 合并后的帖子卡片 */
+  .post-card {
+    background: white;
+    overflow: hidden;
+    margin-bottom: 30rpx;
+    width: 100%;
+  }
+  
+  /* 帖子头部 - 全屏宽度 */
+  .post-header {
+    background: white;
+    color: black;
+    padding: 30rpx 0 0;
+    position: relative;
+  }
+  
+  /* 头部内容容器 - 控制左右内边距 */
+  .header-content {
+    padding: 0 30rpx;
+  }
+  
+  .author-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30rpx;
+  }
+  
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20rpx;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  }
+  
+  .author-details {
+    flex: 1;
+  }
+
+  .owner-edit-btn {
+    padding: 10rpx 20rpx;
+    border: 1rpx solid #0166a4;
+    border-radius: 24rpx;
+    color: #0166a4;
+    font-size: 24rpx;
+  }
+  
+  .author-id {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    margin-bottom: 5rpx;
+    display: block;
+    color: #0166a4;
+  }
+  
+  .post-time {
+    font-size: 10px;
+    line-height: 100%;
+    color: #888;
+    display: block;
+  }
+  
+  /* 帖子内容 - 整合到卡片内 */
+  .title-content {
+    padding: 0 55rpx 0;
+    position: relative;
+    z-index: 2;
+    display: block; /* 使文本块级显示 */
+    white-space: normal; /* 允许正常换行 */
+    word-wrap: break-word; /* 允许长单词换行 */
+    display: -webkit-box; /* 弹性盒模型 */
+    -webkit-box-orient: vertical; /* 垂直排列 */
+  }
+  
+  .post-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .post-zones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20rpx;
+    margin-bottom: 40rpx;
+    padding: 0 30rpx 0;
+  }
+  
+  .zone {
+    background: #e8f4ff;
+    color: #1e80ff;
+    padding: 10rpx 24rpx;
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    font-weight: 500;
+  }
+  
+  .content-text {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 30rpx 0 40rpx;
+    color: #333;
+    padding: 0 65rpx 0;
+  }
+  
+  .content-text text {
+    display: block;
+    margin-bottom: 30rpx;
+    display: block; /* 使文本块级显示 */
+    white-space: normal; /* 允许正常换行 */
+    word-wrap: break-word; /* 允许长单词换行 */
+    display: -webkit-box; /* 弹性盒模型 */
+    -webkit-box-orient: vertical; /* 垂直排列 */
+  }
+
+  .content-text .post-content {
+    font-size: 14px;
+    line-height: 1.8; /* 增加行高让排版更清晰 */
+    color: #333;
+    white-space: pre-line; /* 保留换行符和空格，自动换行 */
+    word-wrap: break-word; /* 长单词自动换行 */
+  }
+  
+  /* 图片展示区域 */
+  .post-images {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5rpx 30rpx;
+    padding: 0 30rpx;
+  }
+  
+  .post-image {
+    width: 220rpx;
+    height: 220rpx;
+    margin: 5rpx;
+    border-radius: 8rpx;
+    background-color: #f5f5f5;
+  }
+  
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30rpx;
+    border-top: 2rpx solid #f0f0f0;
+    color: #888;
+    font-size: 28rpx;
+  }
+  
+  /* 交互按钮样式 */
+  .post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30rpx 50rpx;
+    margin-top: 20rpx;
+    border-top: 1rpx solid #f5f5f5;
+  }
+  
+  .action-left {
+    display: flex;
+  }
+  
+  .action-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .action-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 60rpx;
+  }
+  
+  .action-icon {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+  }
+  
+  .action-count {
+    font-size: 30rpx;
+    line-height: 100%;
+    color: #666;
+  }
+  
+  /* 评论区样式 */
+  .comments-section {
+    width: 100%;
+    padding: 12px 12px;
+    box-sizing: border-box;
+  }
+  
+  .section-title {
+    font-size: 11px;
+    line-height: 100%;
+    font-weight: bold;
+    margin-bottom: 15rpx;
+    color: #333;
+    padding-bottom: 10rpx;
+    border-bottom: 1rpx solid #f0f0f0;
+  }
+  
+  .comment-list {
+    margin-top: 15rpx;
+  }
+  
+  /* 评论项样式 */
+  .comment-item {
+    display: flex;
+    padding: 20rpx 10rpx;
+    border-bottom: 1rpx solid #f0f0f0;
+  }
+  
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 15rpx;
+    flex-shrink: 0;
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10rpx;
+    align-items: center;
+  }
+  
+  .username {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #1a1a1a;
+  }
+  
+  .time {
+    color: #999;
+    font-size: 10px;
+    line-height: 100%;
+  }
+  
+  .text {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 15rpx;
+    color: #333;
+  }
+  
+  .like-icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .like-count {
+    font-size: 13px;
+    line-height: 100%;
+    color: #999;
+  }
+  
+  .reply {
+    font-size: 12px;
+    color: #2678d6;
+  }
+  
+  /* 回复容器样式 */
+  .replies-container {
+    margin-left: 80rpx;
+    padding: 10rpx 0;
+  }
+  
+  .reply-item {
+    display: flex;
+    padding: 15rpx 10rpx;
+    margin-bottom: 15rpx;
+  }
+  
+  .reply-item .avatar {
+    width: 60rpx;
+    height: 60rpx;
+  }
+  
+  .reply-item .username {
+    font-size: 26rpx;
+  }
+  
+  .reply-item .text {
+    font-size: 26rpx;
+  }
+
+  .delete {
+    margin-left: 10px;
+    color: #999;
+    font-size: 12px;
+  }
+  .delete:active {
+    color: #e64340;
+  }
+  
+  /* 评论输入区域 */
+  .comment-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    border-top: 1rpx solid #eee;
+    z-index: 100;
+  }
+  
+  .comment-input {
+    flex: 1;
+    background: #f5f5f5;
+    border-radius: 40rpx;
+    padding: 15rpx 25rpx;
+    margin-right: 15rpx;
+  }
+  
+  .submit-btn, .cancel-btn {
+    padding: 0 20rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    margin-left: 10rpx;
+  }
+  
+  .submit-btn {
+    background: #f0f0f0;
+    color: #333;
+  }
+  
+  .cancel-btn {
+    background: #f0f0f0;
+    color: #333;
+  }
+  
+  /* 底部评论按钮 */
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 15rpx 30rpx;
+    box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.1);
+    z-index: 90;
+  }
+  
+  .comment-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border-radius: 40rpx;
+    height: 70rpx;
+    font-size: 28rpx;
+    color: #666;
+  }
+  
+  .comment-btn .icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+  }
+
+  /* 用户信息弹窗样式 */
+  .user-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .user-popup {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 16rpx;
+    box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.15);
+    padding: 30rpx;
+    width: 400rpx;
+    max-width: 80vw;
+    z-index: 10000;
+  }
+  
+  .popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .popup-avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    margin-bottom: 20rpx;
+    border: 4rpx solid #f0f0f0;
+  }
+  
+  .popup-info {
+    text-align: center;
+    margin-bottom: 25rpx;
+    width: 100%;
+  }
+  
+  .popup-username {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 10rpx;
+  }
+  
+  .popup-signature {
+    font-size: 26rpx;
+    color: #666;
+    display: block;
+    margin-bottom: 8rpx;
+    line-height: 1.4;
+  }
+  
+  .popup-id {
+    font-size: 24rpx;
+    color: #999;
+    display: block;
+  }
+  
+  .popup-message-btn {
+    background: linear-gradient(135deg, #0166A4, #1989fa);
+    color: #fff;
+    border: none;
+    border-radius: 40rpx;
+    padding: 20rpx 40rpx;
+    font-size: 28rpx;
+    font-weight: 500;
+    box-shadow: 0 4rpx 12rpx rgba(1, 102, 164, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .popup-message-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2rpx 8rpx rgba(1, 102, 164, 0.4);
+  }

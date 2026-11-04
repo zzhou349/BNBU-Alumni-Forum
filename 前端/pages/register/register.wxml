@@ -1,0 +1,53 @@
+<!-- 个人信息子页面-注册 -->    
+<view class="register-page">
+  <!-- 注册表单 -->
+  <view class="form">
+    <!-- 账号 -->
+    <view class="form-item">
+    <text class="form-label">校友邮箱</text>
+    <input 
+        class="form-input" 
+        placeholder="请输入邮箱前缀" 
+        bindinput="onAccountInput"
+        value="{{emailPrefix}}"
+    />
+    <view class="email-suffix">@alumni.uic.edu.cn</view>
+    </view>
+
+    <!-- 密码 -->
+    <view class="form-item">
+      <text class="form-label">密码</text>
+      <input class="form-input" password placeholder="请输入密码" bindinput="onPasswordInput" />
+    </view>
+
+    <!-- 确认密码 -->
+    <view class="form-item">
+      <text class="form-label">确认密码</text>
+      <input class="form-input" password placeholder="请再次输入密码" bindinput="onConfirmPasswordInput" />
+    </view>
+
+    <!-- 昵称 -->
+    <view class="form-item">
+      <text class="form-label">昵称</text>
+      <input class="form-input" placeholder="请输入昵称" bindinput="onNicknameInput" />
+    </view>
+
+    <!-- 头像 -->
+    <view class="form-item">
+      <text class="form-label">头像</text>
+      <view class="avatar-wrapper" bindtap="chooseAvatar">
+        <image class="avatar" src="{{avatar}}" />
+        <text class="change-text">点击更换</text>
+      </view>
+    </view>
+
+    <!-- 介绍 -->
+    <view class="form-item">
+      <text class="form-label">介绍</text>
+      <textarea class="form-textarea" placeholder="请输入个人介绍（可空置）" bindinput="onBioInput" />
+    </view>
+
+    <!-- 注册按钮 -->
+    <button class="register-btn" bindtap="register">注册</button>
+  </view>
+</view>

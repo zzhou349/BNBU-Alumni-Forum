@@ -1,0 +1,54 @@
+<view class="message-container">
+  <view class="tabs">
+    <view class="tab {{currentTab === 'activity' ? 'active' : ''}}" data-tab="activity" bindtap="switchTab">
+      动态 <text class="tab-badge" wx:if="{{unreadActivityCount}}">{{unreadActivityCount > 99 ? '99+' : unreadActivityCount}}</text>
+    </view>
+    <view class="tab {{currentTab === 'chat' ? 'active' : ''}}" data-tab="chat" bindtap="switchTab">
+      私聊 <text class="tab-badge" wx:if="{{unreadMessageCount}}">{{unreadMessageCount > 99 ? '99+' : unreadMessageCount}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{!isLoggedIn}}" class="login-prompt">
+    <view>请先登录查看消息</view>
+    <button bindtap="navigateToLogin" type="primary">去登录</button>
+  </view>
+
+  <block wx:if="{{isLoggedIn && currentTab === 'activity'}}">
+    <view class="message-toolbar" wx:if="{{unreadActivityCount}}" bindtap="markAllActivitiesRead">全部标为已读</view>
+    <view class="error-message" wx:if="{{errorMessage}}"><text>{{errorMessage}}</text><button class="reload-btn" bindtap="reloadActivity" size="mini">重试</button></view>
+    <view class="empty-tip" wx:if="{{!activityLoading && !errorMessage && activityList.length === 0}}">暂无动态消息</view>
+    <view class="activity-list">
+      <block wx:for="{{activityList}}" wx:key="id">
+        <view class="activity-item {{item.is_read ? '' : 'unread'}}" bindtap="navigateToActivity" data-id="{{item.id}}" data-postid="{{item.post_id}}" data-userid="{{item.user_id}}">
+          <view class="unread-dot" wx:if="{{!item.is_read}}"></view>
+          <image class="avatar" src="{{item.avatar || '/assets/avatar.png'}}"></image>
+          <view class="content">
+            <view class="username">{{item.username}}</view>
+            <view class="comment">{{item.displayContent}}</view>
+            <view class="post-title" wx:if="{{item.post_title}}">来自：{{item.post_title}}</view>
+            <view class="time">{{item.time}}</view>
+          </view>
+        </view>
+      </block>
+      <view class="loading" wx:if="{{activityLoading}}">加载中...</view>
+      <view class="empty-tip" wx:if="{{!activityLoading && !hasMoreActivities && activityList.length}}">没有更多动态了</view>
+    </view>
+  </block>
+
+  <block wx:if="{{isLoggedIn && currentTab === 'chat'}}">
+    <view class="chat-list">
+      <block wx:for="{{chatList}}" wx:key="partner_id">
+        <view class="chat-item" data-id="{{item.partner_id}}" bindtap="navigateToChat">
+          <image class="avatar" src="{{item.partner_avatar || '/assets/avatar.png'}}"></image>
+          <view class="content">
+            <view class="name-time"><view class="name">{{item.partner_name}}</view><view class="time">{{item.last_message_time}}</view></view>
+            <view class="last-message">{{item.last_message_content || '暂无消息'}}</view>
+          </view>
+          <view class="unread-badge" wx:if="{{item.unread_count}}">{{item.unread_count > 99 ? '99+' : item.unread_count}}</view>
+        </view>
+      </block>
+      <view class="loading" wx:if="{{chatLoading}}">加载中...</view>
+      <view class="empty-tip" wx:if="{{!chatLoading && chatList.length === 0}}">暂无聊天记录</view>
+    </view>
+  </block>
+</view>

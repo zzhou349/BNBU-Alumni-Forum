@@ -1,0 +1,7 @@
+@import "../post/post.wxss";
+
+.edit-loading {
+  padding: 100rpx 0;
+  color: #999;
+  text-align: center;
+}

@@ -1,0 +1,29 @@
+<view class="post-container">
+  <view class="post-form" wx:if="{{!isLoading}}">
+    <view class="post-section">
+      <view class="picker-btn" bindtap="goToZoneSelectPage">{{selectedZoneName || "请选择专区"}}</view>
+    </view>
+
+    <input class="post-input" maxlength="150" placeholder="请输入帖子标题" bindinput="onTitleInput" value="{{title}}" />
+    <textarea class="post-textarea" maxlength="5000" placeholder="写下你的想法..." bindinput="onContentInput" value="{{content}}" />
+
+    <view class="post-section">
+      <view class="image-upload-container">
+        <view class="image-upload-btn" bindtap="chooseImage" wx:if="{{images.length < 9}}">
+          <text class="plus-icon">+</text>
+        </view>
+        <block wx:for="{{images}}" wx:key="path">
+          <view class="image-preview-item">
+            <image class="preview-image" src="{{item.path}}" mode="aspectFill"></image>
+            <view class="remove-image-btn" bindtap="removeImage" data-index="{{index}}">
+              <text class="remove-icon">×</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <button class="submit-btn" loading="{{isSubmitting}}" disabled="{{isSubmitting}}" bindtap="submitEdit">保存修改</button>
+  </view>
+  <view class="edit-loading" wx:else>帖子加载中...</view>
+</view>

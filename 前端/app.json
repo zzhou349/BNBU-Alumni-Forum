@@ -1,0 +1,77 @@
+{
+    "pages": [
+      "pages/home/home",
+      "pages/zone/zone",
+      "pages/follow/follow",
+      "pages/post/post",
+      "pages/post-edit/post-edit",
+      "pages/zone_select/zone_select", 
+      "pages/message/message",
+      "pages/profile/profile",
+      "pages/chat/chat",
+      "pages/edit-profile/edit-profile",
+      "pages/login/login",
+      "pages/password/password",
+      "pages/register/register",
+      "pages/chats/chats",
+      "pages/search/search",
+      "pages/zones/zones",
+      "pages/post-detail/post-detail",
+      "pages/collect/collect",
+      "pages/settings/settings",
+      "pages/admin/admin",
+      "pages/help/help",
+      "pages/about/about",
+      "pages/feedback/feedback",
+      "pages/verify/verify",
+      "pages/history/history",
+      "pages/myposts/myposts",
+      "pages/user-info/user-info",
+      "pages/popular-posts/popular-posts"
+    ],
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#ffffff",
+      "navigationBarTitleText": "BNBU校友墙",
+      "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+      "custom": true,
+      "color": "#999999",
+      "selectedColor": "#0166A4",
+      "backgroundColor": "#ffffff",
+      "borderStyle": "black",
+      "list": [
+        {
+          "pagePath": "pages/home/home",
+          "text": "首页",
+          "iconPath": "assets/home.png",
+          "selectedIconPath": "assets/home_active.png"
+        },
+        {
+          "pagePath": "pages/zone/zone",
+          "text": "专区",
+          "iconPath": "assets/zone.png",
+          "selectedIconPath": "assets/zone_active.png"
+        },
+        {
+          "pagePath": "pages/post/post",
+          "text": "发帖",
+          "iconPath": "assets/post.png",
+          "selectedIconPath": "assets/post_active.png"
+        },
+        {
+          "pagePath": "pages/message/message",
+          "text": "消息",
+          "iconPath": "assets/message.png",
+          "selectedIconPath": "assets/message_active.png"
+        },
+        {
+          "pagePath": "pages/profile/profile",
+          "text": "我的",
+          "iconPath": "assets/profile.png",
+          "selectedIconPath": "assets/profile_active.png"
+        }
+      ]
+    }
+  }

@@ -1,0 +1,116 @@
+.history-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f5f5f5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  }
+  
+  .history-list {
+    flex: 1;
+    padding: 20rpx;
+    overflow-y: auto;
+    height: 0;
+  }
+  
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100rpx 0;
+    text-align: center;
+  }
+  
+  .empty-icon {
+    font-size: 120rpx;
+    margin-bottom: 30rpx;
+    opacity: 0.6;
+  }
+  
+  .empty-text {
+    font-size: 32rpx;
+    color: #999;
+  }
+  
+  .history-item {
+    background: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .item-content {
+    flex: 1;
+  }
+  
+  .item-title {
+    font-size: 32rpx;
+    color: #333;
+    line-height: 1.5;
+    display: block;
+    margin-bottom: 15rpx;
+    font-weight: 500;
+  }
+  
+  .item-meta {
+    display: flex;
+    align-items: center;
+  }
+  
+  .item-author {
+    font-size: 26rpx;
+    color: #666;
+    margin-right: 20rpx;
+  }
+  
+  .item-time {
+    font-size: 26rpx;
+    color: #999;
+  }
+  
+  .item-icon {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+  .loading-more {
+    text-align: center;
+    padding: 30rpx;
+    color: #999;
+    font-size: 26rpx;
+  }
+  
+  .clear-btn-container {
+    display: flex;
+    justify-content: center;
+    padding: 30rpx 20rpx;
+  }
+  
+  .clear-btn {
+    width: 60%;
+    background-color: #ff4757;
+    color: #fff;
+    font-size: 28rpx;
+    padding: 20rpx 0;
+    border-radius: 60rpx;
+    border: none;
+    box-shadow: 0 4rpx 12rpx rgba(255, 71, 87, 0.2);
+  }
+  
+  .clear-btn:active {
+    background-color: #e03e4c;
+    transform: scale(0.98);
+  }

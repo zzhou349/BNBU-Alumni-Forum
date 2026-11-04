@@ -1,0 +1,89 @@
+<!-- 个人信息主页面 -->
+<view class="profile-container">
+  <!-- 个人信息部分 -->
+  <view class="profile-header">
+    <block wx:if="{{isLoggedIn}}">
+      <!-- 已登录状态 -->
+      <image class="avatar" src="{{user.avatar}}" />
+      <view class="user-info">
+        <text class="user-name">{{user.user_nickname}}</text>
+        <text class="user-bio">{{user.bio || "这个人什么都没有写。"}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <!-- 未登录状态 -->
+      <button class="login-btn" bindtap="navigateToLogin">登录/注册</button>
+    </block>
+  </view>
+
+  <!-- 功能项横向展示 -->
+  <view class="horizontal-section">
+    <navigator url="/pages/collect/collect" class="horizontal-item">
+      <image class="icon" src="/images/profile/icon-collection.png" />
+      <text>收藏</text>
+    </navigator>
+    <navigator url="/pages/history/history" class="horizontal-item">
+      <image class="icon" src="/images/profile/icon-history.png" />
+      <text>足迹</text>
+    </navigator>
+    <navigator url="/pages/myposts/myposts" class="horizontal-item">
+      <image class="icon" src="/images/profile/icon-follow.png" />
+      <text>帖子</text>
+    </navigator>
+    <navigator url="/pages/follow/follow" class="horizontal-item">
+      <image class="icon" src="/images/profile/icon-follow.png" />
+      <text>关注</text>
+    </navigator>
+    <navigator url="/pages/follow/follow?mode=followers" class="horizontal-item">
+      <image class="icon" src="/images/profile/icon-follow.png" />
+      <text>粉丝</text>
+    </navigator>
+  </view>
+
+  <!-- 独立功能项区域 - 每个选项单独排版 -->
+  <!-- 帮助 -->
+  <view class="independent-section">
+    <navigator url="/pages/help/help">
+      <view class="profile-item">
+        <text>   帮助</text>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- 关于我们 -->
+  <view class="independent-section">
+    <navigator url="/pages/about/about">
+      <view class="profile-item">
+        <text>   关于我们</text>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- 反馈 -->
+  <view class="independent-section">
+    <navigator url="/pages/feedback/feedback">
+      <view class="profile-item">
+        <text>   反馈</text>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- 设置 -->
+  <view class="independent-section">
+    <navigator url="/pages/settings/settings">
+      <view class="profile-item">
+        <text>设置</text>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- 学校身份认证单独区域 -->
+  <view class="independent-section">
+    <navigator url="/pages/verify/verify">
+      <view class="profile-item">
+        <image class="verify-icon" src="/images/profile/icon-bnbu.png" />
+        <text>学校身份认证</text>
+      </view>   
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,109 @@
+/* 主容器 */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+    padding: 20rpx;
+  }
+  
+/* 个人信息部分 */
+.profile-header {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 30rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 头像 */
+  .avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+    border: 2rpx solid #f0f0f0;
+  }
+  
+  /* 用户信息 */
+  .user-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .user-name {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8rpx;
+  }
+  
+  .user-bio {
+    font-size: 28rpx;
+    color: #999;
+    line-height: 1.4;
+  }
+  
+  /* 横向功能项 */
+  .horizontal-section {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    border-radius: 16rpx;
+    box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+  }
+  
+  .horizontal-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .horizontal-item .icon {
+    width: 60rpx;
+    height: 60rpx;
+    margin-bottom: 10rpx;
+  }
+  
+  .horizontal-item text {
+    font-size: 26rpx;
+  }
+  
+  /* 独立功能项样式 - 每个选项单独卡片 */
+  .independent-section {
+    background-color: white;
+    margin-top: 20rpx; /* 与其他区域保持一致间距 */
+    border-radius: 16rpx;
+    box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+    padding: 20rpx;
+  }
+  
+  .profile-item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+    font-size: 30rpx;
+    /* 移除底部边框，独立卡片不需要分隔线 */
+  }
+  
+  .verify-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+  } 
+
+  /* 登录按钮 */
+.login-btn {
+    background: #007aff;
+    color: white;
+    border: none;
+    padding: 20rpx 40rpx;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    width: 100%;
+  }

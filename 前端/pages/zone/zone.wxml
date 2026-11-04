@@ -1,0 +1,54 @@
+<view class="zone-container"> 
+  <!-- 高赞合集区域 --> 
+<view class="zone-header">
+  <navigator url="/pages/popular-posts/popular-posts" class="zone-card5">
+        <text class="zone-title">高赞合集</text>
+        <text class="zone-subtitle">校友精选</text> 
+  </navigator> 
+
+  <view class="zone-card2" bindtap="goToZoneDetail" data-id="2"> 
+        <text class="zone-title">岗位内推</text> 
+        <text class="zone-subtitle">内推与岗位推荐</text> 
+  </view> 
+ 
+  <view class="zone-card2" bindtap="goToZoneDetail" data-id="3"> 
+        <text class="zone-title">职场咨询</text> 
+        <text class="zone-subtitle">职场咨询与行业洞察</text> 
+  </view> 
+ 
+  <view class="zone-card2" bindtap="goToZoneDetail" data-id="4"> 
+        <text class="zone-title">创业合作</text> 
+        <text class="zone-subtitle">项目合作与资讯分享</text> 
+  </view> 
+ 
+  <view class="zone-card3" bindtap="goToZoneDetail" data-id="5"> 
+        <text class="zone-title">留学准备</text> 
+        <text class="zone-subtitle">时间线&资料准备</text> 
+  </view> 
+ 
+  <view class="zone-card3" bindtap="goToZoneDetail" data-id="6"> 
+        <text class="zone-title">申请经验</text> 
+        <text class="zone-subtitle">bg选校定位、网申流程</text> 
+  </view> 
+ 
+  <view class="zone-card3" bindtap="goToZoneDetail" data-id="7"> 
+        <text class="zone-title">签证申请</text> 
+        <text class="zone-subtitle">流程与材料准备</text> 
+  </view> 
+ 
+  <view class="zone-card4" bindtap="goToZoneDetail" data-id="8"> 
+        <text class="zone-title">租房交流</text> 
+        <text class="zone-subtitle">房源互通、经验交流</text> 
+  </view> 
+
+  <view class="zone-card4" bindtap="goToZoneDetail" data-id="9"> 
+        <text class="zone-title">物品转售</text> 
+        <text class="zone-subtitle">二手物品交易</text> 
+  </view> 
+
+  <view class="zone-card1" bindtap="goToZoneDetail" data-id="1">
+        <text class="zone-title">活动攒局</text>
+        <text class="zone-subtitle">凑个队吧</text> 
+  </view> 
+</view> 
+</view>

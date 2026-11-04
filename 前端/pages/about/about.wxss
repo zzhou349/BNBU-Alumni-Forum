@@ -1,0 +1,72 @@
+.about-page {
+  min-height: 100vh;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #f5f7fa;
+}
+
+.brand-card,
+.about-card {
+  margin-bottom: 22rpx;
+  padding: 34rpx;
+  border-radius: 18rpx;
+  background: #fff;
+}
+
+.brand-card {
+  color: #fff;
+  background: linear-gradient(135deg, #0166a4, #39a2d8);
+}
+
+.brand-name,
+.brand-desc,
+.card-title,
+.card-text {
+  display: block;
+}
+
+.brand-name {
+  font-size: 42rpx;
+  font-weight: bold;
+}
+
+.brand-desc {
+  margin-top: 12rpx;
+  font-size: 25rpx;
+  opacity: 0.9;
+}
+
+.card-title {
+  margin-bottom: 18rpx;
+  color: #222;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.card-text,
+.feature-grid text {
+  color: #666;
+  font-size: 25rpx;
+  line-height: 1.8;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rpx;
+}
+
+.feature-grid text {
+  padding: 16rpx;
+  border-radius: 10rpx;
+  background: #f1f7fb;
+  text-align: center;
+}
+
+.version {
+  display: block;
+  padding: 24rpx;
+  color: #aaa;
+  font-size: 23rpx;
+  text-align: center;
+}

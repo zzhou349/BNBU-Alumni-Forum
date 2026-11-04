@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "BNBU校友墙",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

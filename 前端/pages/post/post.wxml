@@ -1,0 +1,49 @@
+<!-- 发帖主页面 -->
+<view class="post-container">
+  <!-- 发帖表单 -->
+  <view class="post-form">
+    <!-- 选择专区（替换为跳转按钮） -->
+    <view class="post-section">
+      <view class="picker-btn" bindtap="goToZoneSelectPage">
+        {{selectedZoneName || "请选择专区"}}
+      </view>
+    </view>
+
+    <!-- 标题输入框：绑定 value -->
+    <input 
+      class="post-input" 
+      placeholder="请输入帖子标题" 
+      bindinput="onTitleInput" 
+      value="{{title}}" /> <!-- 关键：绑定 data 中的 title -->
+
+    <!-- 正文输入框：绑定 value -->
+    <textarea 
+      class="post-textarea" 
+      placeholder="写下你的想法..." 
+      bindinput="onContentInput" 
+      value="{{content}}" /> <!-- 关键：绑定 data 中的 content -->
+
+    <!-- 图片上传部分 -->
+    <view class="post-section">
+      <view class="image-upload-container">
+        <!-- 图片上传按钮 -->
+        <view class="image-upload-btn" bindtap="chooseImage">
+          <text class="plus-icon">+</text>
+        </view>
+
+        <!-- 图片预览 -->
+        <block wx:for="{{files}}" wx:key="index">
+          <view class="image-preview-item">
+            <image class="preview-image" src="{{item}}" mode="aspectFill"></image>
+            <view class="remove-image-btn" bindtap="removeImage" data-index="{{index}}">
+              <text class="remove-icon">×</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button class="submit-btn" bindtap="submitPost">发布</button>
+  </view>
+</view>

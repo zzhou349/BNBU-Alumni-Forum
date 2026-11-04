@@ -1,0 +1,196 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <view class="search-input-container">
+      <image src="/images/global/search.png" class="search-icon"></image>
+      <input
+        class="search-input"
+        placeholder="请输入关键字搜索..."
+        bindinput="onSearchInput"
+        value="{{searchKeyword}}"
+      />
+      <button class="search-button" bindtap="performSearch">搜索</button>
+    </view>
+  </view>
+
+  <!-- 标签栏 -->
+  <view class="tabs">
+    <view
+      class="tab {{currentTab === 'posts' ? 'active' : ''}}"
+      data-tab="posts"
+      bindtap="switchTab"
+    >
+      帖子
+    </view>
+    <view
+      class="tab {{currentTab === 'users' ? 'active' : ''}}"
+      data-tab="users"
+      bindtap="switchTab"
+    >
+      用户
+    </view>
+  </view>
+
+  <!-- 标签内容区 -->
+  <view class="tab-content">
+    <!-- 帖子搜索结果 -->
+    <block wx:if="{{currentTab === 'posts'}}">
+      <!-- 搜索前提示 -->
+      <view wx:if="{{!hasSearched}}" class="search-hint">
+        请输入关键词搜索帖子
+      </view>
+
+      <!-- 加载中状态 -->
+      <view wx:if="{{isLoading}}" class="loading">
+        <view class="loading-spinner"></view>
+        <text class="loading-text">搜索中...</text>
+      </view>
+
+      <!-- 错误提示 -->
+      <view wx:if="{{errorMessage && !isLoading}}" class="error-message">
+        <text>{{errorMessage}}</text>
+        <button class="reload-btn" bindtap="performSearch" size="mini">重试</button>
+      </view>
+
+      <!-- 帖子列表 -->
+      <view class="post-list" wx:if="{{!isLoading && !errorMessage && hasSearched}}">
+        <!-- 空状态 -->
+        <view wx:if="{{collectedPosts.length === 0}}" class="empty-state">
+          <text class="empty-icon">📋</text>
+          <text class="empty-text">未找到相关帖子</text>
+        </view>
+
+        <!-- 帖子项 -->
+        <block wx:for="{{collectedPosts}}" wx:key="id">
+          <view class="post-card" bindtap="navigateToPostDetail" data-id="{{item.id}}">
+            <!-- 头像 & 用户信息 -->
+            <view class="post-header">
+              <image
+                class="user-avatar"
+                src="{{item.author.avatar}}"
+                mode="aspectFill"
+                catchtap="onAvatarTap"
+                data-userid="{{item.author.id}}"
+                data-username="{{item.author.name}}"
+                data-avatar="{{item.author.avatar}}"
+              ></image>
+              <view class="user-info">
+                <text class="user-id">{{item.author.name}}</text>
+                <text class="post-time">{{item.createTime}}</text>
+              </view>
+            </view>
+
+            <!-- 帖子内容 -->
+            <view class="post-title">
+              <text>{{item.title}}</text>
+            </view>
+
+            <!-- 图片展示区域 -->
+            <view class="post-images" wx:if="{{item.images && item.images.length > 0}}">
+              <block wx:for="{{item.images}}" wx:key="index">
+                <image
+                  class="post-image"
+                  src="{{item}}"
+                  mode="aspectFill"
+                  bindtap="previewImage"
+                  data-url="{{item}}"
+                  data-index="{{index}}"
+                  data-id="{{item.id}}"
+                ></image>
+              </block>
+            </view>
+
+            <!-- 专区信息 -->
+            <view class="post-zone-tags" wx:if="{{item.zone}}">
+              <text class="post-zone-tag">#{{item.zone}}</text>
+            </view>
+
+            <!-- 互动按钮 -->
+            <view class="post-actions">
+              <!-- 收藏按钮 -->
+              <view class="action-item" catchtap="handleCollect" data-id="{{item.id}}">
+                <image src="{{item.isCollected ? '/assets/collected.png' : '/assets/collect.png'}}" class="action-icon"></image>
+                <text>{{item.collectCount}}</text>
+              </view>
+
+              <!-- 点赞按钮 -->
+              <view class="action-item" catchtap="handleLike" data-id="{{item.id}}">
+                <image src="{{item.isLiked ? '/assets/liked.png' : '/assets/like.png'}}" class="action-icon"></image>
+                <text>{{item.likeCount}}</text>
+              </view>
+
+              <!-- 评论按钮 -->
+              <view class="action-item" catchtap="navigateToPostDetail" data-id="{{item.id}}">
+                <image src="/assets/comment.png" class="action-icon"></image>
+                <text>{{item.commentCount}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <!-- 加载更多 -->
+      <view
+        wx:if="{{hasMore && !isLoading && collectedPosts.length > 0 && hasSearched}}"
+        class="load-more"
+        bindtap="loadMorePosts"
+      >
+        加载更多
+      </view>
+    </block>
+
+    <!-- 用户搜索结果 -->
+    <block wx:if="{{currentTab === 'users'}}">
+      <!-- 搜索前提示 -->
+      <view wx:if="{{!hasSearched}}" class="search-hint">
+        请输入关键词搜索用户
+      </view>
+
+      <!-- 加载中状态 -->
+      <view wx:if="{{isLoading}}" class="loading">
+        <view class="loading-spinner"></view>
+        <text class="loading-text">搜索中...</text>
+      </view>
+
+      <!-- 错误提示 -->
+      <view wx:if="{{errorMessage && !isLoading}}" class="error-message">
+        <text>{{errorMessage}}</text>
+        <button class="reload-btn" bindtap="performSearch" size="mini">重试</button>
+      </view>
+
+      <!-- 用户列表 -->
+      <view class="user-list" wx:if="{{!isLoading && !errorMessage && hasSearched}}">
+        <!-- 空状态 -->
+        <view wx:if="{{userList.length === 0}}" class="empty-state">
+          <image src="/assets/default-user.png" mode="widthFix" class="empty-img"></image>
+          <text class="empty-text">未找到相关用户</text>
+        </view>
+
+        <!-- 用户项 -->
+        <block wx:for="{{userList}}" wx:key="id">
+          <view
+            class="user-item"
+            bindtap="goToUserProfile"
+            data-userid="{{item.id}}"
+            data-username="{{item.nickname}}"
+            data-avatar="{{item.avatar}}"
+          >
+            <image
+              class="user-avatar"
+              src="{{item.avatar || '/assets/avatar.png'}}"
+              bindtap="onAvatarTap"
+              data-userid="{{item.id}}"
+              data-username="{{item.nickname}}"
+              data-avatar="{{item.avatar}}"
+            ></image>
+
+            <view class="user-info">
+              <view class="user-name">{{item.nickname}}</view>
+              <view class="user-bio">{{item.bio || '暂无简介'}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>

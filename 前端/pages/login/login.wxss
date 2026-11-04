@@ -1,0 +1,48 @@
+/* 页面容器 */
+.login-page {
+    padding: 20rpx;
+    background: #f8f8f8;
+  }
+  
+  /* 表单 */
+  .form {
+    background: white;
+    padding: 20rpx;
+    border-radius: 10rpx;
+  }
+  
+  .input {
+    border: 1rpx solid #e0e0e0;
+    padding: 15rpx;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+  }
+  
+  .login-btn {
+    background: #0166A1;
+    color: white;
+    border: none;
+    padding: 15rpx;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+  }
+  
+  /* 注册链接 */
+  .register-link {
+    text-align: center;
+    margin-top: 40rpx;
+    font-size: 24rpx;
+    color: #666;
+  }
+  
+  .register-link text {
+    color: #007aff;
+  }
+
+  .forgot-password {
+    margin: -6rpx 0 24rpx;
+    color: #0166a4;
+    font-size: 24rpx;
+    text-align: right;
+  }

@@ -1,0 +1,26 @@
+{
+  "name": "alumni-wall-backend",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Backend API for the Alumni Wall WeChat mini program",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "migrate:phase3": "node scripts/migrate-phase3.js",
+    "migrate:phase4": "node scripts/migrate-phase4.js",
+    "smoke": "node tests/smoke.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.3",
+    "nodemailer": "^9.0.3"
+  }
+}

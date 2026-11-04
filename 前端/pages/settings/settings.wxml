@@ -1,0 +1,47 @@
+<view class="settings-container">
+  <text class="settings-title">设置</text>
+  <view class="settings-content">
+    <!-- 移除编辑个人信息按钮，替换为个人信息编辑表单 -->
+    <view class="form-item">
+      <text class="form-label">头像</text>
+      <view class="avatar-wrapper" bindtap="changeAvatar">
+        <image class="avatar" src="{{user.avatar}}" />
+        <text class="change-text">点击更换</text>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">昵称</text>
+      <input class="form-input" value="{{user.nickname}}" bindinput="onNameChange" placeholder="请输入昵称" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">简介</text>
+      <textarea class="form-textarea" value="{{user.bio}}" bindinput="onBioChange" placeholder="请输入简介" />
+    </view>
+
+    <button class="save-btn" bindtap="saveProfile">保存</button>
+
+    <!-- 添加间距并保留退出登录按钮 -->
+    <view class="spacing"></view>
+    <block wx:if="{{isLoggedIn}}">
+      <view class="setting-item" wx:if="{{isAdmin}}" bindtap="navigateToAdmin">
+        <text>🛡️ 内容管理</text>
+        <text class="setting-arrow">›</text>
+      </view>
+      <view class="setting-item" bindtap="navigateToPassword">
+        <text>🔒 修改密码</text>
+        <text class="setting-arrow">›</text>
+      </view>
+      <view class="setting-item" bindtap="logout">
+        <text>🚪 退出登录</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="setting-item" bindtap="navigateToLogin">
+        <text>🔑 登录/注册</text>
+      </view>
+    </block>
+  </view>
+</view>
+

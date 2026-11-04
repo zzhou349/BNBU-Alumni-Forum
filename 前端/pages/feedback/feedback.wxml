@@ -1,0 +1,20 @@
+<view class="feedback-container">
+  <view class="feedback-card">
+    <text class="feedback-title">意见反馈</text>
+    <text class="feedback-desc">你的建议会帮助校友墙变得更好</text>
+
+    <text class="form-label">反馈类型</text>
+    <picker range="{{categories}}" range-key="label" value="{{categoryIndex}}" bindchange="onCategoryChange">
+      <view class="picker-field">{{categories[categoryIndex].label}} <text>›</text></view>
+    </picker>
+
+    <text class="form-label">反馈内容</text>
+    <textarea class="content-input" maxlength="2000" value="{{content}}" bindinput="onContentInput" placeholder="请详细描述你的建议或遇到的问题" />
+    <text class="word-count">{{content.length}} / 2000</text>
+
+    <text class="form-label">联系方式（选填）</text>
+    <input class="contact-input" maxlength="100" value="{{contact}}" bindinput="onContactInput" placeholder="邮箱、微信或其他联系方式" />
+
+    <button class="submit-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submitFeedback">提交反馈</button>
+  </view>
+</view>

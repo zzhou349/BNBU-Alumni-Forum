@@ -1,0 +1,158 @@
+<!-- post-detail.wxml -->
+<view class="post-detail-container">
+  <!-- 合并后的帖子卡片 -->
+  <view class="post-card">
+    <!-- 帖子头部信息 -->
+    <view class="post-header">
+      <view class="header-content">
+        <view class="author-info">
+          <image src="{{post.avatar}}" class="author-avatar" catchtap="onAvatarTap" data-userid="{{post.authorId}}" data-username="{{post.author}}" data-avatar="{{post.avatar}}"></image>
+          <view class="author-details">
+            <text class="author-id">{{post.author}}</text>
+            <text class="post-time">{{post.time}}</text>
+          </view>
+          <view class="owner-edit-btn" wx:if="{{userId && post.authorId === userId}}" bindtap="editPost">编辑</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 帖子内容 -->
+    <view class="title-content">
+      <text class="post-title">{{post.title}}</text>
+    </view>
+
+    <view class="content-text">
+      <view class="post-content">{{post.content}}</view>
+    </view>
+
+    <!-- 图片展示区域 -->
+    <view class="post-images" wx:if="{{post.images && post.images.length > 0}}">
+      <block wx:for="{{post.images}}" wx:key="index">
+        <image
+          class="post-image"
+          src="{{item}}"
+          mode="aspectFill"
+          bindtap="previewImage"
+          data-url="{{item}}"
+          data-index="{{index}}"
+        ></image>
+      </block>
+    </view>
+
+    <view class="post-zones">
+      <text class="zone" wx:for="{{post.zones}}" wx:key="index">#{{item}}</text>
+    </view>
+
+    <!-- 互动按钮 -->
+    <view class="post-actions">
+    <view class="action-left">
+      <!-- 收藏按钮 -->
+      <view class="action-item" catchtap="handleCollect">
+        <image src="{{post.isCollected ? '/assets/collected.png' : '/assets/collect.png'}}" class="action-icon"></image>
+        <text class="action-count">{{post.collectCount}}</text>
+      </view>
+
+      <!-- 点赞按钮 -->
+      <view class="action-item" catchtap="handleLike">
+        <image src="{{post.isLiked ? '/assets/liked.png' : '/assets/like.png'}}" class="action-icon"></image>
+        <text class="action-count">{{post.likeCount}}</text>
+      </view>
+    </view>
+
+      <!-- 评论按钮 -->
+      <view class="action-right" catchtap="openCommentInput">
+        <image src="/assets/comment.png" class="action-icon"></image>
+        <text class="action-count">评论</text>
+      </view>
+    </view>
+  </view>
+
+    <!-- 评论列表 -->
+    <view class="comments-section">
+    <view class="section-title">共{{post.commentCount}}条评论</view>
+
+    <view class="comment-list">
+        <block wx:for="{{comments}}" wx:key="id">
+        <!-- 主评论 -->
+        <view class="comment-item">
+            <image class="avatar" src="{{item.avatar || '/assets/avatar.png'}}" catchtap="onCommentAvatarTap" data-userid="{{item.user_id}}" data-username="{{item.username}}" data-avatar="{{item.avatar}}" />
+            <view class="content">
+            <view class="header">
+                <view class="user-info">
+                <text class="username">{{item.username}}</text>
+                <text class="time"> · {{item.time}}</text>
+                </view>
+                <view class="actions">
+                <view class="like-action" bindtap="handleCommentLike" data-index="{{index}}">
+                    <image src="{{item.isLiked ? '/assets/liked.png' : '/assets/like.png'}}" class="like-icon" />
+                    <text class="like-count">{{item.likeCount || 0}}</text>
+                </view>
+                <view class="reply" bindtap="handleReply" data-id="{{item.id}}">
+                    回复
+                </view>
+
+                <!-- 添加删除按钮（仅当是当前用户的评论时显示） -->
+                <view
+                    class="delete"
+                    wx:if="{{item.user_id === userId}}"
+                    bindtap="handleDeleteComment"
+                    data-id="{{item.id}}"
+                >
+                    删除
+                </view>
+                </view>
+            </view>
+
+            <view class="text">{{item.content}}</view>
+
+            <!-- 回复列表 -->
+            <view class="replies-container" wx:if="{{item.replies && item.replies.length > 0}}">
+                <block wx:for="{{item.replies}}" wx:key="id">
+                <view class="reply-item">
+                    <image class="avatar" src="{{item.avatar || '/assets/avatar.png'}}" catchtap="onCommentAvatarTap" data-userid="{{item.user_id}}" data-username="{{item.username}}" data-avatar="{{item.avatar}}" />
+                    <view class="content">
+                    <view class="header">
+                        <text class="username">{{item.username}}</text>
+                        <text class="time">{{item.time}}</text>
+                        <image src="/assets/like.png" class="like-icon" bindtap="handleCommentLike" data-index="{{index}}" data-replyindex="{{index2}}" />
+                        <text class="like-count">{{item.likeCount || 0}}</text>
+                    </view>
+                    <view class="text">{{item.content}}</view>
+                    </view>
+                </view>
+                </block>
+            </view>
+            </view>
+        </view>
+        </block>
+    </view>
+    </view>
+
+  <!-- 评论输入框 -->
+  <view class="comment-input-container" wx:if="{{showCommentInput}}">
+    <input
+        class="comment-input"
+        placeholder="{{replyingTo ? '回复评论...' : '写下你的评论...'}}"
+        focus="{{inputFocus}}"
+        bindinput="onCommentInput"
+        value="{{commentContent}}"
+    />
+    <button class="submit-btn" bindtap="submitComment">发送</button>
+    <button class="cancel-btn" bindtap="setData({showCommentInput: false})">取消</button>
+  </view>
+</view>
+
+<!-- 用户信息弹窗 -->
+<view class="user-popup-overlay" wx:if="{{showUserPopup}}" bindtap="hideUserPopup">
+  <view class="user-popup" style="top: {{popupPosition.top}}px; left: {{popupPosition.left}}px;" catchtap="noop">
+    <view class="popup-content">
+      <image class="popup-avatar" src="{{popupUser.avatar}}" mode="aspectFill"></image>
+      <view class="popup-info">
+        <text class="popup-username">{{popupUser.username}}</text>
+        <text class="popup-signature">{{popupUser.signature || '这个人很懒，什么都没写~'}}</text>
+        <text class="popup-id">ID: {{popupUser.userId}}</text>
+      </view>
+      <button class="popup-message-btn" bindtap="sendPrivateMessage">私聊</button>
+    </view>
+  </view>
+</view>

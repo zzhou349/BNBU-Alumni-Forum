@@ -1,0 +1,67 @@
+/* 页面整体样式 */ 
+/* 主容器 */
+  .zone-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  }
+  
+  .zone-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20rpx; /* 增加卡片间距 */
+    padding-bottom: 40rpx; /* 添加底部内边距 */
+  }
+  
+  .zone-card1 { 
+    background: #fffbe6;
+    border-radius: 25rpx; 
+    padding: 30rpx; 
+    box-shadow: 0 3rpx 5rpx #666; 
+  } 
+  
+  .zone-card2 { 
+    background: #E3F2FD; 
+    border-radius: 25rpx; 
+    padding: 30rpx; 
+    box-shadow: 0 3rpx 5rpx #666; 
+  } 
+  
+  .zone-card3 { 
+    background: #BBDEFB; 
+    border-radius: 25rpx; 
+    padding: 30rpx; 
+    box-shadow: 0 3rpx 5rpx #666; 
+  } 
+  
+  .zone-card4 { 
+    background: #E8F5E9; 
+    border-radius: 25rpx; 
+    padding: 30rpx; 
+    box-shadow: 0 3rpx 5rpx #666; 
+  } 
+
+  .zone-card5 { 
+    background: #eecece; 
+    border-radius: 25rpx; 
+    padding: 30rpx; 
+    box-shadow: 0 3rpx 5rpx #666; 
+  } 
+  
+  .zone-title { 
+    display: block; 
+    font-size: 35rpx; 
+    font-weight: bold; 
+    color: #333; 
+    margin-bottom: 10rpx;  
+  } 
+  
+  .zone-subtitle { 
+    display: block; 
+    font-size: 35rpx; 
+    color: #666; 
+  }

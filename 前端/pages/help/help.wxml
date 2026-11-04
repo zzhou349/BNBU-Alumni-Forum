@@ -1,0 +1,26 @@
+<view class="info-page">
+  <view class="hero">
+    <text class="hero-title">使用帮助</text>
+    <text class="hero-desc">校友墙常用功能与问题说明</text>
+  </view>
+
+  <view class="section">
+    <text class="section-title">账号与认证</text>
+    <view class="qa"><text class="question">如何注册和登录？</text><text class="answer">在“我的”页面进入登录，首次使用可注册新账号。忘记密码时，可通过注册邮箱或已认证学校邮箱重置。</text></view>
+    <view class="qa"><text class="question">如何完成学校身份认证？</text><text class="answer">进入个人设置中的学校邮箱认证，使用支持的学校邮箱获取验证码并提交。</text></view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">帖子与互动</text>
+    <view class="qa"><text class="question">如何发布或修改帖子？</text><text class="answer">点击底部“发帖”，填写专区、标题、正文和图片。自己的帖子可在详情页点击“编辑”修改。</text></view>
+    <view class="qa"><text class="question">如何举报不合适的内容？</text><text class="answer">点击帖子右上角更多按钮，选择举报原因。管理员会在内容管理页面处理举报。</text></view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">消息与社交</text>
+    <view class="qa"><text class="question">私信多久刷新一次？</text><text class="answer">聊天页面会自动检查新消息，也可以返回消息列表查看未读数量。</text></view>
+    <view class="qa"><text class="question">在哪里查看粉丝和关注？</text><text class="answer">从“我的”进入粉丝或关注列表，也可以点击任意用户主页上的粉丝数和关注数。</text></view>
+  </view>
+
+  <navigator url="/pages/feedback/feedback" class="feedback-link">仍未解决？提交意见反馈</navigator>
+</view>

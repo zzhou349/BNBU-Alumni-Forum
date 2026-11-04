@@ -1,0 +1,258 @@
+/* 使用与专区页面相同的样式 */
+.zones-container { 
+    background-color: #f5f5f5;
+    min-height: 100vh; 
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  } 
+  
+  /* 顶部专区信息 */ 
+  .header { 
+    padding: 40rpx 30rpx 60rpx; 
+    color: black;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    background: white;
+  } 
+    
+  .zone-title { 
+    font-size: 52rpx; 
+    font-weight: bold; 
+    margin-bottom: 10rpx; 
+    color: black;
+  } 
+  
+  .zone-info { 
+    font-size: 28rpx; 
+    opacity: 0.9; 
+    margin-bottom: 30rpx; 
+    color: black;
+  } 
+  
+  .zone-description { 
+    font-size: 30rpx; 
+    line-height: 1.6; 
+    color: black;
+  }
+  
+  /* 内容区域 */ 
+  .content-container {
+    background-color: #f5f5f5;
+    padding: 0;
+  } 
+  
+  .tabs { 
+    display: flex; 
+    background-color: white; 
+    border-bottom: 1rpx solid #eee; 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  } 
+  
+  .tab { 
+    flex: 1; 
+    text-align: center; 
+    font-size: 32rpx; 
+    padding: 25rpx 0; 
+    position: relative; 
+    color: #666; 
+  } 
+  
+  .tab.active { 
+    font-weight: bold; 
+    color: #0166A4; 
+  } 
+  
+  .tab.active::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 80rpx; 
+    height: 6rpx; 
+    background-color: #0166A4; 
+    border-radius: 3rpx; 
+  } 
+  
+  /* 加载状态 */
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    padding: 40rpx;
+    color: #888;
+    background: white;
+  }
+  
+  .loading-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 15rpx;
+  }
+  
+  /* 空状态 */ 
+  .empty-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 80rpx 0; 
+    background: white;
+  } 
+  
+  .empty-image { 
+    width: 300rpx; 
+    height: 300rpx; 
+    opacity: 0.5; 
+    margin-bottom: 40rpx; 
+  } 
+  
+  .empty-text { 
+    font-size: 32rpx; 
+    color: #999; 
+  } 
+  
+  /* 帖子卡片样式 */
+  .post-list {
+    padding: 0 20rpx;
+    background: #f5f5f5;
+  }
+  
+  .post-card {
+    padding: 30rpx;
+    background: white;
+    border-radius: 16rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+  }
+  
+  .user-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-id {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .post-time {
+    font-size: 24rpx;
+    color: #999;
+  }
+  
+  .post-title {
+    font-size: 30rpx;
+    margin-bottom: 20rpx;
+    color: #333;
+    line-height: 1.6;
+    display: block; /* 使文本块级显示 */
+  white-space: normal; /* 允许正常换行 */
+  word-wrap: break-word; /* 允许长单词换行 */
+  overflow: hidden; /* 超出部分隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 弹性盒模型 */
+  -webkit-line-clamp: 2; /* 最多显示2行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  }
+  
+  /* 图片展示区域 */
+  .post-images {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5rpx 20rpx;
+  }
+  
+  .post-image {
+    width: 150rpx;
+    height: 150rpx;
+    margin: 5rpx;
+  }
+  
+  .post-zone-tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 25rpx;
+  }
+  
+  .post-zone-tag {
+    background-color: #e6f3ff;
+    color: #1989fa;
+    font-size: 24rpx;
+    padding: 6rpx 15rpx;
+    border-radius: 6rpx;
+    margin-right: 15rpx;
+    margin-bottom: 10rpx;
+  }
+  
+  .hot-tag {
+    background-color: #FFEB3B;
+    color: #FF5722;
+    font-size: 24rpx;
+    padding: 6rpx 15rpx;
+    border-radius: 6rpx;
+    margin-right: 15rpx;
+    margin-bottom: 10rpx;
+    font-weight: bold;
+  }
+  
+  .post-actions {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1rpx solid #f5f5f5;
+    padding-top: 20rpx;
+  }
+  
+  .action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24rpx;
+    color: #666;
+  }
+  
+  .action-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-bottom: 10rpx;
+  }
+  
+  /* 加载更多 */
+  .load-more {
+    text-align: center;
+    padding: 30rpx;
+    color: #999;
+    background: white;
+    margin-top: 20rpx;
+    border-radius: 16rpx;
+  }
+  
+  .loading-icon-small {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+  }
+  
+  /* 底部提示 */
+  .footer-tips {
+    text-align: center;
+    padding: 30rpx 0;
+    font-size: 26rpx;
+    color: #999;
+    background: #f5f5f5;
+  }

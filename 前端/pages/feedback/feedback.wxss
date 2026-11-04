@@ -1,0 +1,67 @@
+.feedback-container {
+  min-height: 100vh;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #f5f7fa;
+}
+
+.feedback-card {
+  padding: 34rpx;
+  border-radius: 18rpx;
+  background: #fff;
+}
+
+.feedback-title {
+  display: block;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.feedback-desc {
+  display: block;
+  margin: 10rpx 0 34rpx;
+  color: #888;
+  font-size: 25rpx;
+}
+
+.form-label {
+  display: block;
+  margin: 26rpx 0 12rpx;
+  color: #333;
+  font-size: 27rpx;
+}
+
+.picker-field,
+.contact-input,
+.content-input {
+  width: 100%;
+  padding: 20rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  background: #fff;
+  font-size: 27rpx;
+}
+
+.picker-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-input {
+  height: 280rpx;
+}
+
+.word-count {
+  display: block;
+  margin-top: 8rpx;
+  color: #aaa;
+  font-size: 22rpx;
+  text-align: right;
+}
+
+.submit-btn {
+  margin-top: 40rpx;
+  color: #fff;
+  background: #0166a4;
+}

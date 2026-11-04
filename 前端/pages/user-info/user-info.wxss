@@ -1,0 +1,253 @@
+/* 用户信息页面样式 */
+.user-info-container {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding-bottom: 40rpx;
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  }
+  
+  /* 用户信息卡片 */
+  .user-card {
+    background-color: #fff;
+    margin: 20rpx;
+    padding: 40rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  .user-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40rpx;
+  }
+  
+  .user-avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 60rpx;
+    margin-right: 30rpx;
+    border: 2rpx solid #f0f0f0;
+  }
+  
+  .user-details {
+    flex: 1;
+  }
+  
+  .username {
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 10rpx;
+  }
+  
+  .user-id {
+    font-size: 28rpx;
+    color: #666;
+    display: block;
+    margin-bottom: 10rpx;
+  }
+  
+  .bio {
+    font-size: 28rpx;
+    color: #999;
+    display: block;
+    line-height: 1.4;
+  }
+  
+  /* 用户统计信息 */
+  .user-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30rpx;
+    border-top: 1rpx solid #eee;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-number {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8rpx;
+  }
+  
+  .stat-label {
+    font-size: 24rpx;
+    color: #666;
+  }
+  
+  /* 操作按钮 */
+  .action-buttons {
+    display: flex;
+    gap: 20rpx;
+    margin: 20rpx;
+  }
+  
+  .action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24rpx;
+    border-radius: 12rpx;
+    border: none;
+    font-size: 32rpx;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  
+  .primary-btn {
+    background-color: #007aff;
+    color: #fff;
+  }
+  
+  .primary-btn:active {
+    background-color: #0062cc;
+  }
+  
+  .secondary-btn {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .secondary-btn:active {
+    background-color: #e0e0e0;
+  }
+  
+  .btn-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 12rpx;
+  }
+  
+  /* 帖子卡片样式 - 与首页保持一致 */
+  .post-card {
+    background-color: #fff;
+    border-radius: 20rpx;
+    margin: 20rpx;
+    padding: 30rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+  }
+  
+  .user-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    margin-right: 20rpx;
+  }
+  
+  .user-info {
+    flex: 1;
+  }
+  
+  .user-id {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333;
+    display: block;
+  }
+  
+  .post-time {
+    font-size: 24rpx;
+    color: #999;
+    display: block;
+    margin-top: 5rpx;
+  }
+  
+  .post-title {
+    margin-bottom: 20rpx;
+  }
+  
+  .post-title text {
+    font-size: 30rpx;
+    color: #333;
+    line-height: 1.6;
+    font-weight: bold;
+    display: block; /* 使文本块级显示 */
+    white-space: normal; /* 允许正常换行 */
+    word-wrap: break-word; /* 允许长单词换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+    display: -webkit-box; /* 弹性盒模型 */
+    -webkit-line-clamp: 2; /* 最多显示2行 */
+    -webkit-box-orient: vertical; /* 垂直排列 */    
+  }
+  
+  .post-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rpx;
+    margin-bottom: 20rpx;
+  }
+  
+  .post-image {
+    width: 200rpx;
+    height: 200rpx;
+  }
+  
+  /* 专区标签 - 增加间距 */
+  .post-zone-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rpx;
+    margin-top: 30rpx; /* 增加与上方内容的间距 */
+    margin-bottom: 20rpx;
+  }
+  
+  .post-zone-tag {
+    background-color: #f0f8ff;
+    color: #007aff;
+    font-size: 24rpx;
+    padding: 8rpx 16rpx;
+    border-radius: 20rpx;
+  }
+  
+  .post-actions {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1rpx solid #eee;
+    padding-top: 20rpx;
+  }
+  
+  .action-item {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+  }
+  
+  .action-icon {
+    width: 32rpx;
+    height: 32rpx;
+  }
+  
+  .action-item text {
+    font-size: 28rpx;
+    color: #666;
+  }
+  
+  /* 空状态样式 */
+  .empty-posts {
+    text-align: center;
+    padding: 100rpx 0;
+    color: #999;
+    font-size: 28rpx;
+  }
+  
+  /* 加载指示器 */
+  .loading-indicator {
+    text-align: center;
+    padding: 30rpx 0;
+    font-size: 26rpx;
+    color: #999;
+  }

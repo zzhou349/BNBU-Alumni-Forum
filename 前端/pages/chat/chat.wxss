@@ -1,0 +1,224 @@
+/* 聊天页面整体容器 */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f7f7f7;
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  }
+  
+  /* 消息列表区域 */
+  .message-list {
+    flex: 1;
+    padding: 10px 0 10px 0;
+    background-color: #f7f7f7;
+  }
+  
+  /* 加载更多提示 */
+  .loading-more {
+    text-align: center;
+    padding: 15px;
+    color: #999;
+    font-size: 14px;
+  }
+  
+  /* 时间分割线 */
+  .time-divider {
+    text-align: center;
+    margin: 20px 0;
+    padding: 0 15px;
+  }
+  
+  .time-divider text {
+    background-color: #e0e0e0;
+    color: #999;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 12px;
+  }
+  
+  /* 消息项 - 外层容器 */
+  .message-item {
+    margin-bottom: 15px;
+    padding: 0 15px;
+    display: flex;
+    align-items: flex-start; /* 改为顶部对齐，为头像与消息顶部对齐做准备 */
+  }
+  
+  /* 消息气泡容器 - 核心对齐调整 */
+  .message-bubble {
+    display: flex;
+    align-items: flex-start; /* 头像和消息框顶部对齐 */
+    width: 100%;
+    gap: 8px; /* 头像与消息的间距 */
+  }
+  
+  /* 自己的消息反向排列 */
+  .message-item.me .message-bubble {
+    flex-direction: row-reverse;
+  }
+  
+  /* 头像样式 - 顶部对齐关键设置 */
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+    /* 头像顶部与容器顶部对齐（无额外偏移） */
+    top: 0; 
+  }
+  
+  /* 对方消息：头像在左，与消息间距8px */
+  .message-item.other .avatar {
+    margin-right: 8px;
+  }
+  
+  /* 自己消息：头像在右，与消息间距8px */
+  .message-item.me .avatar {
+    margin-left: 8px;
+  }
+  
+  /* 消息内容区域 - 顶部对齐 */
+  .bubble-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    /* 消息内容区顶部与容器顶部对齐 */
+    justify-content: flex-start; 
+  }
+  
+  /* 自己的消息内容靠右对齐 */
+  .message-item.me .bubble-content {
+    align-items: flex-end;
+  }
+  
+  /* 消息气泡样式 - 顶部对齐关键设置 */
+  .bubble {
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 4px;
+    word-break: break-all;
+    position: relative;
+    max-width: 100%;
+    line-height: 1.5;
+    /* 消息框顶部与容器顶部对齐（无额外偏移） */
+    margin-top: 0; 
+  }
+  
+  /* 对方消息气泡 */
+  .bubble.other {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  /* 自己消息气泡 */
+  .bubble.me {
+    background-color: #0166A4;
+    color: #fff;
+  }
+  
+  /* 消息文本 */
+  .message-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  /* 消息时间 */
+  .message-time {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+  
+  /* 自己的消息时间靠右 */
+  .message-item.me .message-time {
+    text-align: right;
+  }
+  
+  /* 空状态 */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    padding: 0 30px;
+    text-align: center;
+  }
+  
+  .empty-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  .empty-tip {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  /* 底部输入区域 */
+  .input-area {
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0;
+    padding: 10px 15px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    padding: 8px 15px;
+  }
+  
+  /* 输入框 */
+  .message-input {
+    flex: 1;
+    font-size: 15px;
+    color: #333;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-right: 10px;
+  }
+  
+  /* 发送按钮 */
+  .send-button {
+    background-color: #0166A4 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 15px;
+    padding: 6px 15px;
+    font-size: 14px;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+    min-width: 60px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .send-button:active {
+    background-color: #015a8f !important;
+    transform: scale(0.98);
+  }
+
+  .history-end {
+    padding: 12px 0;
+    color: #bbb;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .bubble.pending {
+    opacity: 0.65;
+  }

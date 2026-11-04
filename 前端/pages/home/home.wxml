@@ -1,0 +1,150 @@
+<!-- 主页主页面 -->
+<view class="home-container" bindtap="onPageTap" data-is-menu="false" bindscroll="onPageScroll">
+  <!-- 顶部搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-container">
+      <image src="/images/global/search.png" class="search-icon"></image>
+      <input
+        class="search-input"
+        placeholder="请输入关键字搜索..."
+        bindinput="onSearchInput"
+        value="{{searchKeyword}}"
+      />
+      <button class="search-button" bindtap="performSearch">搜索</button>
+    </view>
+  </view>
+
+  <!-- 热门事件滚动区块 -->
+  <view class="hot-events-container">
+    <swiper class="hot-events-swiper" autoplay="{{true}}" interval="5000" circular="{{true}}" indicator-dots="{{true}}">
+      <block wx:for="{{hotEvents}}" wx:key="id">
+        <swiper-item>
+          <view class="hot-event-card">
+            <image class="event-image" src="{{item.image}}" mode="aspectFill"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 分类标签 -->
+  <view class="zone-container">
+    <view class="zone-grid">
+      <block wx:for="{{zones}}" wx:key="index">
+        <view class="zone-item" data-zone="{{item}}" bindtap="onZoneTap">
+          {{item}}
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 悬浮按钮 -->
+  <view class="floating-buttons">
+    <!-- 返回顶部按钮 -->
+    <button class="floating-button floating-top-button" bindtap="scrollToTop">
+      <image src="/images/home/top-float.png" class="button-icon"></image>
+    </button>
+
+    <!-- 搜索按钮 -->
+    <button class="floating-button floating-search-button" bindtap="onFloatingSearchTap">
+      <image src="/images/home/search-float.png" class="button-icon"></image>
+    </button>
+  </view>
+
+  <!-- 帖子列表 -->
+  <view class="post-list">
+    <block wx:if="{{!isLoading && posts.length === 0}}">
+      <view class="empty-posts">
+        <text>暂无帖子</text>
+      </view>
+    </block>
+
+    <!-- 帖子卡片结构 -->
+    <block wx:for="{{posts}}" wx:key="id">
+      <!-- 将整个帖子卡片包裹在可点击区域 -->
+      <view class="post-card" bindtap="navigateToPostDetail" data-id="{{item.id}}">
+
+        <!-- 头像 & 用户信息 -->
+        <view class="post-header">
+
+          <image class="user-avatar" src="{{item.avatar}}" mode="aspectFill" catchtap="onAvatarTap" data-userid="{{item.user_id}}" data-username="{{item.username}}" data-avatar="{{item.avatar}}"></image>
+
+          <view class="user-info">
+            <text class="user-id">{{item.username}}</text>
+            <text class="post-time">{{item.time}}</text>
+          </view>
+
+          <view class="post-more"
+                  catchtap="showReportDialog"
+                  data-id="{{item.id}}"
+                  data-index="{{index}}"
+                  id="more-button-{{item.id}}"
+          >
+              <image src="/assets/more.png" class="more-icon"></image>
+          </view>
+        </view>
+
+        <!-- 帖子内容 -->
+        <view class="post-title">
+          <text>{{item.title}}</text>
+        </view>
+
+        <!-- 图片展示区域 -->
+        <view class="post-images" wx:if="{{item.images && item.images.length > 0}}">
+          <block wx:for="{{item.images}}" wx:for-item="image" wx:key="index">
+            <image
+              class="post-image"
+              src="{{image}}"
+              mode="aspectFill"
+              catchtap="previewImage"
+              data-url="{{image}}"
+              data-index="{{index}}"
+              data-id="{{item.id}}"
+            ></image>
+          </block>
+        </view>
+
+        <!-- 专区信息 -->
+        <view class="post-zone-tags">
+          <block wx:for="{{item.zone}}" wx:key="index">
+            <text class="post-zone-tag">#{{item}}</text>
+          </block>
+        </view>
+
+        <!-- 互动按钮 -->
+        <view class="post-actions">
+          <!-- 收藏按钮 -->
+          <view class="action-item" catchtap="handleCollect" data-id="{{item.id}}">
+            <image src="{{item.isCollected ? '/assets/collected.png' : '/assets/collect.png'}}" class="action-icon"></image>
+            <text>{{item.collectCount || 0}}</text>
+          </view>
+
+          <!-- 点赞按钮 -->
+          <view class="action-item" catchtap="handleLike" data-id="{{item.id}}">
+            <image src="{{item.isLiked ? '/assets/liked.png' : '/assets/like.png'}}" class="action-icon"></image>
+            <text>{{item.likeCount || 0}}</text>
+          </view>
+
+          <!-- 评论按钮 -->
+          <view class="action-item" catchtap="navigateToPostDetail" data-id="{{item.id}}">
+            <image src="/assets/comment.png" class="action-icon"></image>
+            <text>{{item.commentCount || 0}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="list-status" wx:if="{{isLoadingMore}}">加载中...</view>
+    <view class="list-status" wx:if="{{!isLoading && !hasMore && posts.length > 0}}">没有更多帖子了</view>
+  </view>
+
+  <!-- 上下文菜单（举报菜单） -->
+  <view
+  class="context-menu"
+  wx:if="{{showReportDialog}}"
+  style="top: {{menuTop}}px; left: {{menuLeft}}px;"
+  data-is-menu="true"
+>
+  <view class="menu-item" bindtap="handleReport">举报</view>
+</view>
+
+</view>

@@ -1,0 +1,61 @@
+<!--
+    个人信息子页面
+    信息修改
+-->    
+<view class="edit-profile-page">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">编辑个人资料</text>
+    <text class="page-subtitle">完善你的个人信息</text>
+  </view>
+
+  <!-- 头像卡片 -->
+  <view class="profile-card">
+    <view class="card-header">
+      <text class="card-title">头像设置</text>
+    </view>
+    <view class="avatar-section" bindtap="changeAvatar">
+      <view class="avatar-container">
+        <image class="avatar" src="{{user.avatar || '/assets/avatar.png'}}" />
+        <view class="avatar-overlay">
+          <text class="camera-icon">📷</text>
+        </view>
+      </view>
+      <view class="avatar-info">
+        <text class="avatar-title">更换头像</text>
+        <text class="avatar-desc">点击选择新头像</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 基本信息卡片 -->
+  <view class="profile-card">
+    <view class="card-header">
+      <text class="card-title">基本信息</text>
+    </view>
+    
+    <!-- 昵称 -->
+    <view class="input-group">
+      <text class="input-label">昵称</text>
+      <view class="input-wrapper">
+        <input class="form-input" value="{{user.nickname}}" bindinput="onNameChange" placeholder="请输入昵称" placeholder-class="input-placeholder" />
+      </view>
+    </view>
+
+    <!-- 简介 -->
+    <view class="input-group">
+      <text class="input-label">个人简介</text>
+      <view class="textarea-wrapper">
+        <textarea class="form-textarea" value="{{user.bio}}" bindinput="onBioChange" placeholder="介绍一下自己吧..." placeholder-class="textarea-placeholder" maxlength="200" />
+        <text class="char-count">{{bioLength}}/200</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="button-section">
+    <button class="save-btn" bindtap="saveProfile">
+      <text class="btn-text">保存修改</text>
+    </button>
+  </view>
+</view>

@@ -1,0 +1,45 @@
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px; /* 总高度修改为50px */
+    background: white;
+    display: flex;
+    padding-bottom: env(safe-area-inset-bottom);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tab-bar-border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    background-color: #eee;
+    transform: scaleY(0.5);
+  }
+  
+  .tab-bar-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6px; /* 上方留白调整为6px */
+    padding-bottom: 4px; /* 下方留白调整为4px */
+    box-sizing: border-box;
+    height: 100%;
+  }
+  
+  .icon {
+    width: 21px;  /* 图标宽度修改为21px */
+    height: 21px; /* 图标高度修改为21px */
+    margin-bottom: 2px; /* 图标与文字间距调整 */
+  }
+  
+  .text {
+    font-size: 12px; /* 文字大小调整为12px */
+  }
+  

@@ -1,0 +1,55 @@
+<view class="chats-container">
+  <!-- 登录状态 -->
+  <block wx:if="{{isLoggedIn}}">
+    <!-- 加载状态 -->
+    <block wx:if="{{loading}}">
+      <view class="loading-container">
+        <view class="weui-loadmore">
+          <view class="weui-loading"></view>
+          <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 已加载完成 -->
+    <block wx:else>
+      <!-- 有对话数据 -->
+      <block wx:if="{{!isEmpty && conversations.length > 0}}">
+        <view class="conversation-list">
+          <view
+            wx:for="{{conversations}}"
+            wx:key="partner_id"
+            class="conversation-item"
+            bindtap="navigateToChat"
+            data-id="{{item.partner_id}}"
+          >
+            <image class="avatar" src="{{item.partner_avatar || '/assets/avatar.png'}}" />
+            <view class="content">
+              <view class="top">
+                <text class="name">{{item.partner_name}}</text>
+                <text class="time">{{item.last_message_time}}</text>
+              </view>
+              <text class="message">{{item.last_message_content || '暂无消息'}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!-- 无对话数据 -->
+      <block wx:else>
+        <view class="empty-container">
+          <text class="empty-text">暂无聊天记录</text>
+          <text class="empty-tip">快去和他人开启对话吧~</text>
+        </view>
+      </block>
+    </block>
+  </block>
+
+  <!-- 未登录状态 -->
+  <block wx:else>
+    <view class="login-container">
+      <text class="login-text">登录后查看私聊消息</text>
+      <button class="login-button" bindtap="navigateToLogin">立即登录</button>
+    </view>
+  </block>
+</view>

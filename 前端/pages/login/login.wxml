@@ -1,0 +1,19 @@
+<!--
+    个人信息子页面
+    登录
+-->
+<view class="login-page">
+  <!-- 登录表单 -->
+  <view class="form">
+    <input class="input" placeholder="请输入邮箱" bindinput="onAccountInput" />
+    <input class="input" placeholder="请输入密码" password bindinput="onPasswordInput" />
+    <view class="forgot-password" bindtap="navigateToResetPassword">忘记密码？</view>
+    <button class="login-btn" bindtap="login">登录</button>
+  </view>
+
+  <!-- 注册链接 -->
+  <view class="register-link">
+    <text>还没有账号？</text>
+    <text bindtap="navigateToRegister">立即注册</text>
+  </view>
+</view>

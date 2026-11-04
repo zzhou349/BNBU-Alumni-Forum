@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="relation-summary" wx:if="{{targetUserId}}">
+    共 {{total}} 位{{mode === 'followers' ? '粉丝' : '关注用户'}}
+  </view>
+
+  <view wx:if="{{errorMessage && !isLoading}}" class="error-message">
+    <text>{{errorMessage}}</text>
+    <button class="reload-btn" bindtap="reloadList" size="mini">重试</button>
+  </view>
+
+  <view wx:if="{{!targetUserId}}" class="unlogin-hint">
+    <text class="hint-icon">🔒</text>
+    <text class="hint-text">请先登录查看用户关系</text>
+    <button class="login-btn" bindtap="navigateToLogin">去登录</button>
+  </view>
+
+  <view class="user-list" wx:if="{{targetUserId && !errorMessage}}">
+    <view wx:if="{{followList.length === 0 && !isLoading}}" class="empty-state">
+      <text class="empty-text">{{mode === 'followers' ? '暂无粉丝' : '暂无关注用户'}}</text>
+    </view>
+
+    <block wx:for="{{followList}}" wx:key="id">
+      <view class="user-item" bindtap="goToUserProfile" data-userid="{{item.id}}">
+        <image class="user-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="user-info">
+          <view class="user-name">{{item.nickname}}</view>
+          <view class="user-bio">{{item.bio || '暂无简介'}}</view>
+          <view class="follow-time">{{item.followTime}} · {{item.postCount}} 篇帖子</view>
+        </view>
+        <button wx:if="{{isOwn && mode === 'following'}}" class="unfollow-btn" catchtap="handleUnfollow" data-userid="{{item.id}}">取消关注</button>
+      </view>
+    </block>
+
+    <view wx:if="{{isLoading}}" class="loading">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+    <view class="list-end" wx:if="{{!isLoading && !hasMore && followList.length > 0}}">没有更多了</view>
+  </view>
+</view>

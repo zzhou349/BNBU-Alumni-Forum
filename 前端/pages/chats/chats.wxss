@@ -1,0 +1,114 @@
+.chats-container {
+  height: 100vh;
+  background-color: #f7f7f7;
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+/* 加载状态样式 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* 对话列表样式 */
+.conversation-list {
+  padding: 10px 0;
+}
+
+.conversation-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.time {
+  font-size: 12px;
+  color: #999;
+}
+
+.message {
+  font-size: 14px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 80%;
+}
+
+/* 空状态样式 */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.empty-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.empty-tip {
+  font-size: 14px;
+  color: #999;
+}
+
+/* 登录提示样式 */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.login-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #07c160;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+}

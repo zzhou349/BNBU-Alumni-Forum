@@ -1,0 +1,120 @@
+<!-- zones.wxml -->
+<view class="zones-container">
+  <!-- 顶部专区信息 -->
+  <view class="header">
+    <view class="zone-title">{{zoneData.title}}</view>
+    <view class="zone-info">嗯？校友们一共发了 {{zoneData.postCount}} 条帖子！</view>
+    <view class="zone-description">{{zoneData.description}}</view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-container">
+    <view class="tabs">
+      <view
+        class="tab {{activeTab === 'hot' ? 'active' : ''}}"
+        bindtap="switchTab"
+        data-tab="hot"
+      >
+        热门
+      </view>
+      <view
+        class="tab {{activeTab === 'new' ? 'active' : ''}}"
+        bindtap="switchTab"
+        data-tab="new"
+      >
+        最新
+      </view>
+    </view>
+
+    <!-- 加载状态 -->
+    <view wx:if="{{isLoading}}" class="loading-container">
+        <text>加载中...</text>
+    </view>
+
+    <!-- 帖子列表 - 内容为空提示 -->
+    <view class="empty-container" wx:if="{{posts.length === 0 && !isLoading}}">
+      <text class="empty-text">暂无内容，快来发布第一条吧！</text>
+    </view>
+
+    <!-- 帖子列表部分 -->
+    <view class="post-list" wx:if="{{posts.length > 0}}">
+      <block wx:for="{{posts}}" wx:key="id">
+        <view class="post-card" bindtap="navigateToPostDetail" data-id="{{item.id}}">
+
+          <!-- 头像 & 用户信息 -->
+          <view class="post-header">
+
+            <image class="user-avatar" src="{{item.avatar}}" mode="aspectFill" catchtap="onAvatarTap" data-userid="{{item.user_id}}" data-username="{{item.username}}" data-avatar="{{item.avatar}}"></image>
+
+            <view class="user-info">
+              <text class="user-id">{{item.username}}</text>
+              <text class="post-time">{{item.time}}</text>
+            </view>
+
+            <view class="post-more"
+                  catchtap="showReportDialog"
+                  data-id="{{item.id}}"
+                  data-index="{{index}}"
+                  id="more-button-{{item.id}}"
+            >
+              <image src="/assets/more.png" class="more-icon"></image>
+          </view>
+        </view>
+
+          <!-- 帖子内容 -->
+          <view class="post-title">
+            <text>{{item.title}}</text>
+          </view>
+
+          <!-- 图片展示区域 -->
+          <view class="post-images" wx:if="{{item.images && item.images.length > 0}}">
+            <block wx:for="{{item.images}}" wx:key="index">
+              <image
+                class="post-image"
+                src="{{item}}"
+                mode="aspectFill"
+                bindtap="previewImage"
+                data-url="{{item}}"
+                data-index="{{index}}"
+                data-id="{{item.id}}"
+              ></image>
+            </block>
+          </view>
+
+          <!-- 专区信息 -->
+          <view class="post-zone-tags">
+            <block wx:for="{{item.zone}}" wx:key="index">
+              <text class="post-zone-tag">#{{item}}</text>
+            </block>
+          </view>
+
+          <!-- 互动按钮 -->
+          <view class="post-actions">
+            <!-- 收藏按钮 -->
+            <view class="action-item" catchtap="handleCollect" data-id="{{item.id}}">
+              <image src="{{item.isCollected ? '/assets/collected.png' : '/assets/collect.png'}}" class="action-icon"></image>
+              <text>{{item.collectCount || 0}}</text>
+            </view>
+
+            <!-- 点赞按钮 -->
+            <view class="action-item" catchtap="handleLike" data-id="{{item.id}}">
+              <image src="{{item.isLiked ? '/assets/liked.png' : '/assets/like.png'}}" class="action-icon"></image>
+              <text>{{item.likeCount || 0}}</text>
+            </view>
+
+            <!-- 评论按钮 -->
+            <view class="action-item" catchtap="navigateToPostDetail" data-id="{{item.id}}">
+              <image src="/assets/comment.png" class="action-icon"></image>
+              <text>{{item.commentCount || 0}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!-- 底部提示 -->
+      <view class="footer-tips">
+        <text wx:if="{{isEnd && posts.length > 0}}">没有更多内容了</text>
+      </view>
+    </view>
+  </view>
+</view>

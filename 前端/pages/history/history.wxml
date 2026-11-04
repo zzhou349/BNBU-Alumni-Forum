@@ -1,0 +1,41 @@
+<view class="history-container">
+  <scroll-view
+    scroll-y
+    class="history-list"
+    bindscrolltolower="loadMoreHistory"
+    refresher-enabled="{{true}}"
+    refresher-triggered="{{isRefreshing}}"
+    bindrefresherrefresh="onRefresh"
+    enable-back-to-top
+  >
+    <block wx:if="{{!isLoading && historyList.length === 0}}">
+      <view class="empty-state">
+        <text class="empty-icon">📋</text>
+        <text class="empty-text">暂无浏览记录</text>
+      </view>
+    </block>
+
+    <block wx:for="{{historyList}}" wx:key="history_id">
+      <view class="history-item" bindtap="navigateToPost" data-post_id="{{item.post_id}}">
+        <view class="item-content">
+          <text class="item-title">{{item.title}}</text>
+          <view class="item-meta">
+            <text class="item-author">{{item.author}}</text>
+            <text class="item-time">{{item.view_time_text}}</text>
+          </view>
+        </view>
+        <text class="item-icon">›</text>
+      </view>
+    </block>
+
+    <view class="loading-more" wx:if="{{isLoading}}">
+      <text>加载中...</text>
+    </view>
+
+    <view class="clear-btn-container" wx:if="{{historyList.length > 0 && !isLoading}}">
+      <button class="clear-btn" bindtap="clearHistory">
+        清空历史记录
+      </button>
+    </view>
+  </scroll-view>
+</view>

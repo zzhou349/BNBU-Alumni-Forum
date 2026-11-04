@@ -1,0 +1,68 @@
+<!-- 分区选择页面 -->
+<view class="zone-select-container">
+  <!-- 职业发展与招聘 -->
+<view class="category-section">
+  <view class="category-title">|  职业发展与招聘</view>
+  <view class="zone-grid">
+    <view class="zone-card blue" bindtap="selectZone" data-id="2">
+      <text class="zone-name">岗位内推</text>
+      <text class="zone-desc">内推与岗位推荐</text>
+    </view>
+    <view class="zone-card blue" bindtap="selectZone" data-id="3">
+      <text class="zone-name">职场咨询</text>
+      <text class="zone-desc">职场咨询与行业洞察</text>
+    </view>
+    <view class="zone-card blue" bindtap="selectZone" data-id="4">
+      <text class="zone-name">创业合作</text>
+      <text class="zone-desc">项目合作与资讯分享</text>
+    </view>
+  </view>
+</view>
+
+  <!-- 留学经验交流 -->
+<view class="category-section">
+  <view class="category-title">|  留学经验交流</view>
+  <view class="zone-grid">
+    <view class="zone-card blue" bindtap="selectZone" data-id="5">
+      <text class="zone-name">留学准备</text>
+      <text class="zone-desc">时间线&资料准备</text>
+    </view>
+    <view class="zone-card blue" bindtap="selectZone" data-id="6">
+      <text class="zone-name">申请经验</text>
+      <text class="zone-desc">bg选校定位、网申流程</text>
+    </view>
+    <view class="zone-card blue" bindtap="selectZone" data-id="7">
+      <text class="zone-name">签证申请</text>
+      <text class="zone-desc">流程与材料准备</text>
+    </view>
+  </view>
+</view>
+
+  <!-- 本地生活经验求助 -->
+<view class="category-section">
+  <view class="category-title">|  本地生活经验求助</view>
+  <view class="zone-grid">
+    <view class="zone-card green" bindtap="selectZone" data-id="8">
+      <text class="zone-name">租房交流</text>
+      <text class="zone-desc">房源互通、经验交流</text>
+    </view>
+    <view class="zone-card green" bindtap="selectZone" data-id="9">
+      <text class="zone-name">物品转售</text>
+      <text class="zone-desc">二手物品交易</text>
+    </view>
+  </view>
+</view>
+
+  <!-- 活动攒局 -->
+<view class="category-section">
+  <view class="category-title">|  活动攒局</view>
+  <view class="zone-grid">
+    <view class="zone-card yellow" bindtap="selectZone" data-id="1">
+      <text class="zone-name">活动攒局</text>
+      <text class="zone-desc">活动组队、社群交流</text>
+    </view>
+  </view>
+</view>
+
+</view>
+

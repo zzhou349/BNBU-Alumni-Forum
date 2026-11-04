@@ -1,0 +1,223 @@
+/* 页面容器 */
+.edit-profile-page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 40rpx 30rpx;
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+/* 页面标题 */
+.page-header {
+  text-align: center;
+  margin-bottom: 60rpx;
+  padding-top: 40rpx;
+}
+
+.page-title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16rpx;
+}
+
+.page-subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: #8e8e93;
+}
+
+/* 卡片样式 */
+.profile-card {
+  background: white;
+  border-radius: 24rpx;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  padding: 40rpx 40rpx 20rpx;
+  border-bottom: 1rpx solid #f0f2f5;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* 头像部分 */
+.avatar-section {
+  padding: 40rpx;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.avatar-section:active {
+  background-color: #f8f9fa;
+}
+
+.avatar-container {
+  position: relative;
+  margin-right: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 6rpx solid #f0f2f5;
+}
+
+.avatar-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  background: #0166A4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4rpx solid white;
+}
+
+.camera-icon {
+  font-size: 20rpx;
+  color: white;
+}
+
+.avatar-info {
+  flex: 1;
+}
+
+.avatar-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 8rpx;
+}
+
+.avatar-desc {
+  display: block;
+  font-size: 24rpx;
+  color: #8e8e93;
+}
+
+/* 输入组 */
+.input-group {
+  padding: 0 40rpx 40rpx;
+}
+
+.input-group:last-child {
+  padding-bottom: 40rpx;
+}
+
+.input-label {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 20rpx;
+  padding-top: 20rpx
+}
+
+/* 输入框样式 */
+.input-wrapper {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding: 32rpx;
+  font-size: 30rpx;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #f8f9fa;
+  border: 2rpx solid #e9ecef;
+  border-radius: 16rpx;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  background: white;
+  border-color: #0166A4;
+  box-shadow: 0 0 0 6rpx rgba(1, 102, 164, 0.1);
+}
+
+.input-placeholder {
+  color: #8e8e93;
+}
+
+/* 文本域样式 */
+.textarea-wrapper {
+  position: relative;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 24rpx 32rpx;
+  font-size: 30rpx;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #f8f9fa;
+  border: 2rpx solid #e9ecef;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  min-height: 160rpx;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.form-textarea:focus {
+  background: white;
+  border-color: #0166A4;
+  box-shadow: 0 0 0 6rpx rgba(1, 102, 164, 0.1);
+}
+
+.textarea-placeholder {
+  color: #8e8e93;
+}
+
+.char-count {
+  position: absolute;
+  bottom: 16rpx;
+  right: 20rpx;
+  font-size: 22rpx;
+  color: #8e8e93;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4rpx 8rpx;
+  border-radius: 8rpx;
+}
+
+/* 按钮部分 */
+.button-section {
+  padding: 20rpx 0;
+}
+
+.save-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #0166A4 0%, #0147a3 100%);
+  color: white;
+  border: none;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-shadow: 0 8rpx 32rpx rgba(1, 102, 164, 0.3);
+  transition: all 0.3s ease;
+}
+
+.save-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 4rpx 16rpx rgba(1, 102, 164, 0.4);
+}
+
+.btn-text {
+  color: white;
+}

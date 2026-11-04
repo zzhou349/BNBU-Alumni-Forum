@@ -1,0 +1,84 @@
+/* 页面容器样式 */
+.zone-select-container {
+    padding: 20rpx;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  }
+  
+  /* 分类区块间距 */
+  .category-section {
+    margin-bottom: 30rpx;
+  }
+  
+  /* 分类标题样式 */
+  .category-title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 15rpx 10rpx;
+    padding-bottom: 10rpx;
+    border-bottom: 1rpx solid #eee;
+  }
+  
+  /* 网格布局容器 - 核心两列实现 */
+  .zone-grid {
+    display: flex;
+    flex-wrap: wrap; /* 超出自动换行 */
+    justify-content: space-between; /* 左右对齐，中间留白 */
+    gap: 20rpx; /* 卡片之间的间距 */
+    padding: 0 10rpx;
+  }
+  
+  /* 分区卡片样式 - 关键两列设置 */
+  .zone-card {
+    width: calc(50% - 10rpx); /* 计算宽度，减去间距的一半 */
+    border-radius: 12rpx;
+    padding: 25rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    box-sizing: border-box;
+  }
+  
+  /* 卡片点击反馈 */
+  .zone-card:active {
+    transform: scale(0.98);
+  }
+  
+  /* 分区名称样式 */
+  .zone-name {
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #333;
+    display: block;
+    margin-bottom: 8rpx;
+  }
+  
+  /* 分区描述样式 */
+  .zone-desc {
+    font-size: 24rpx;
+    color: #666;
+    line-height: 1.4;
+  }
+  
+  /* 分类颜色标识 */
+  .zone-card.blue {
+    background-color: #e6f7ff;
+  }
+  
+  .zone-card.green {
+    background-color: #f0f9eb;
+  }
+  
+  .zone-card.yellow {
+    background-color: #fffbe6;
+  }
+  
+  /* 适配小屏幕设备 */
+  @media (max-width: 375rpx) {
+    .zone-card {
+      width: 100%; /* 小屏幕自动切换为单列 */
+    }
+  }
+      

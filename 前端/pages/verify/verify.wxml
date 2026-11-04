@@ -1,0 +1,100 @@
+<view class="verify-container">
+  <text class="verify-title">学校身份认证</text>
+  
+  <!-- 邮箱认证部分 -->
+  <view class="email-section">
+    <text class="section-title">邮箱认证</text>
+    <text class="section-desc" wx:if="{{!alreadyVerified}}">请使用学校邮箱进行身份认证</text>
+    
+    <!-- 已验证状态显示 -->
+    <view class="verified-status" wx:if="{{alreadyVerified}}">
+      <view class="verified-icon">✅</view>
+      <view class="verified-info">
+        <text class="verified-title">邮箱认证成功</text>
+        <text class="verified-email">{{email}}</text>
+        <text class="verified-time" wx:if="{{verifiedAt}}">验证时间：{{verifiedAt}}</text>
+      </view>
+    </view>
+    
+    <!-- 邮箱输入 -->
+    <view class="input-group" wx:if="{{!alreadyVerified}}">
+      <text class="input-label">学校邮箱</text>
+      <input 
+        class="email-input" 
+        type="text" 
+        placeholder="请输入学校邮箱（@mail.uic.edu.cn）"
+        value="{{email}}"
+        bindinput="onEmailInput"
+        maxlength="50"
+      />
+      <text class="email-suffix">@mail.uic.edu.cn</text>
+    </view>
+    
+    <!-- 验证码输入 -->
+    <view class="input-group" wx:if="{{showVerifyCode && !alreadyVerified}}">
+      <text class="input-label">验证码</text>
+      <view class="verify-code-row">
+        <input 
+          class="code-input" 
+          type="number" 
+          placeholder="请输入6位验证码"
+          value="{{verifyCode}}"
+          bindinput="onCodeInput"
+          maxlength="6"
+        />
+        <button 
+          class="send-code-btn {{canSendCode ? '' : 'disabled'}}" 
+          bindtap="sendVerifyCode"
+          disabled="{{!canSendCode}}"
+        >
+          {{sendCodeText}}
+        </button>
+      </view>
+    </view>
+
+    <view class="mock-code-tip" wx:if="{{testVerifyCode && !alreadyVerified}}">
+      <text class="mock-code-title">开发模式验证码</text>
+      <text class="mock-code-value">{{testVerifyCode}}</text>
+      <text class="mock-code-desc">仅在本地 mock 邮件模式显示</text>
+    </view>
+    
+    <!-- 操作按钮 -->
+    <view class="button-group" wx:if="{{!alreadyVerified}}">
+      <button 
+        class="verify-btn primary" 
+        bindtap="{{showVerifyCode ? 'verifyEmailCode' : 'sendVerifyCode'}}"
+        disabled="{{!email || (!showVerifyCode && !isValidEmail)}}"
+      >
+        {{showVerifyCode ? '验证' : '发送验证码'}}
+      </button>
+      
+      <button 
+        class="verify-btn secondary" 
+        bindtap="resetVerification"
+        wx:if="{{showVerifyCode}}"
+      >
+        重新输入邮箱
+      </button>
+    </view>
+    
+    <!-- 已验证状态的操作按钮 -->
+    <view class="button-group" wx:if="{{alreadyVerified}}">
+      <button 
+        class="verify-btn secondary" 
+        bindtap="resetVerification"
+      >
+        重新验证
+      </button>
+    </view>
+    
+    <!-- 状态提示 -->
+    <view class="status-tips" wx:if="{{!alreadyVerified}}">
+      <text class="tip-text" wx:if="{{!isValidEmail && email}}">
+        请输入正确的学校邮箱格式
+      </text>
+      <text class="tip-text success" wx:if="{{verificationSuccess}}">
+        邮箱认证成功！
+      </text>
+    </view>
+  </view>
+</view>

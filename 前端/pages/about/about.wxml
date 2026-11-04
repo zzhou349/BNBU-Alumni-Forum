@@ -1,0 +1,27 @@
+<view class="about-page">
+  <view class="brand-card">
+    <text class="brand-name">BNBU 校友墙</text>
+    <text class="brand-desc">面向校友和在校生的交流论坛学生作品</text>
+  </view>
+
+  <view class="about-card">
+    <text class="card-title">项目介绍</text>
+    <text class="card-text">校友墙用于分享校园生活、职业发展、留学申请、活动组织和闲置交易等信息，提供发帖、评论、点赞、收藏、关注、私信和内容管理功能。</text>
+  </view>
+
+  <view class="about-card">
+    <text class="card-title">主要功能</text>
+    <view class="feature-grid">
+      <text>分区发帖与搜索</text><text>评论点赞与收藏</text>
+      <text>粉丝关注与私信</text><text>邮箱身份认证</text>
+      <text>举报反馈与管理</text><text>浏览记录与个人主页</text>
+    </view>
+  </view>
+
+  <view class="about-card">
+    <text class="card-title">技术构成</text>
+    <text class="card-text">微信小程序原生前端、Node.js 与 Express 后端、MySQL 数据库。</text>
+  </view>
+
+  <text class="version">学生作品版 · 2026</text>
+</view>

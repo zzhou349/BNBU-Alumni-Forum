@@ -1,0 +1,44 @@
+<view class="chat-container">
+  <scroll-view
+    scroll-y
+    class="message-list"
+    scroll-into-view="{{scrollIntoView}}"
+    bindscrolltoupper="loadMoreMessages"
+    upper-threshold="80"
+    scroll-with-animation
+  >
+    <view wx:if="{{isLoadingMore}}" class="loading-more">加载更早消息...</view>
+    <view wx:if="{{!hasMoreMessages && messages.length > 0}}" class="history-end">已显示全部消息</view>
+
+    <view wx:for="{{messages}}" wx:key="message_id" id="message-{{item.message_id}}" class="message-item {{item.isMe ? 'me' : 'other'}}">
+      <view class="message-bubble">
+        <image
+          class="avatar"
+          src="{{item.isMe ? userInfo.avatar : partnerInfo.avatar}}"
+          catchtap="onAvatarTap"
+          data-userid="{{item.isMe ? userInfo.user_id : partnerInfo.userId}}"
+          data-username="{{item.isMe ? userInfo.user_nickname : partnerInfo.username}}"
+          data-avatar="{{item.isMe ? userInfo.avatar : partnerInfo.avatar}}"
+        />
+        <view class="bubble-content">
+          <view class="bubble {{item.isMe ? 'me' : 'other'}} {{item.pending ? 'pending' : ''}}">
+            <text class="message-text">{{item.message_content}}</text>
+          </view>
+          <text class="message-time">{{item.pending ? '发送中...' : item.time}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{messages.length === 0 && !loading}}" class="empty-state">
+      <text class="empty-text">暂无聊天记录</text>
+      <text class="empty-tip">开始发送消息吧~</text>
+    </view>
+  </scroll-view>
+
+  <view class="input-area">
+    <view class="input-container">
+      <input class="message-input" placeholder="输入消息..." value="{{inputMessage}}" bindinput="onInputMessage" confirm-type="send" bindconfirm="sendMessage" cursor-spacing="20" />
+      <button class="send-button" disabled="{{isSending || !inputMessage}}" bindtap="sendMessage">发送</button>
+    </view>
+  </view>
+</view>

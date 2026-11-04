@@ -1,0 +1,125 @@
+/* 基础容器样式 - 简洁化 */
+.settings-container {
+  padding: 30rpx;
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  background-color: #f9f9f9;
+}
+
+/* 标题样式 */
+.settings-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 24rpx;
+  color: #333;
+}
+
+/* 内容区域样式 - 移除多余层次 */
+.settings-content {
+  /* 移除背景色、边框和阴影，减少视觉层次 */
+}
+
+/* 设置项通用样式 - 简化设计 */
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  margin-bottom: 12rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.setting-item text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+/* 表单项目样式 - 简洁化 */
+.form-item {
+  margin-bottom: 24rpx;
+  padding: 10rpx 0;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8rpx;
+  font-size: 28rpx;
+  color: #555;
+}
+
+/* 输入框样式 - 极简设计 */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 16rpx;
+  border: 1px solid #ddd;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+}
+
+.form-textarea {
+  height: 140rpx;
+  resize: none;
+}
+
+/* 保存按钮样式 - 简化 */
+.save-btn {
+  width: 100%;
+  padding: 20rpx;
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 6rpx;
+  margin: 16rpx 0 24rpx;
+  font-size: 30rpx;
+}
+
+/* 间距调整 */
+.spacing {
+  height: 16rpx;
+}
+
+/* 退出登录按钮样式 */
+.setting-item.logout text {
+  color: #e53e3e;
+}
+.avatar-wrapper {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.change-text {
+  color: #007aff;
+}
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.form-textarea {
+  height: 100px;
+  resize: none;
+}
+.save-btn {
+  width: 100%;
+  padding: 12px;
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+.spacing {
+  height: 20px;
+}
+
+.setting-arrow {
+  color: #999;
+  font-size: 38rpx;
+}

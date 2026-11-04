@@ -1,0 +1,264 @@
+/* 容器样式 */
+.verify-container { 
+  padding: 40rpx; 
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.verify-title { 
+  font-size: 36rpx; 
+  font-weight: bold; 
+  margin-bottom: 32rpx; 
+  text-align: center;
+  color: #333;
+}
+
+/* 邮箱认证区域 */
+.email-section {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.section-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 40rpx;
+  display: block;
+}
+
+/* 输入组样式 */
+.input-group {
+  margin-bottom: 32rpx;
+}
+
+.input-label {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+  display: block;
+  font-weight: 500;
+}
+
+/* 邮箱输入框 */
+.email-input {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #e1e1e1;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  background-color: #fafafa;
+  box-sizing: border-box;
+}
+
+.email-input:focus {
+  border-color: #007aff;
+  background-color: white;
+}
+
+.email-suffix {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 12rpx;
+  display: block;
+}
+
+/* 验证码行 */
+.verify-code-row {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.code-input {
+  flex: 1;
+  height: 80rpx;
+  border: 2rpx solid #e1e1e1;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  background-color: #fafafa;
+  box-sizing: border-box;
+}
+
+.code-input:focus {
+  border-color: #007aff;
+  background-color: white;
+}
+
+/* 发送验证码按钮 */
+.send-code-btn {
+  width: 180rpx;
+  height: 80rpx;
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-code-btn.disabled {
+  background-color: #ccc;
+  color: #999;
+}
+
+/* 按钮组 */
+.button-group {
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.verify-btn {
+  width: 100%;
+  height: 88rpx;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify-btn.primary {
+  background-color: #007aff;
+  color: white;
+}
+
+.verify-btn.primary:disabled {
+  background-color: #ccc;
+  color: #999;
+}
+
+.verify-btn.secondary {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.verify-btn.secondary:active {
+  background-color: #e0e0e0;
+}
+
+/* 状态提示 */
+.status-tips {
+  margin-top: 24rpx;
+  text-align: center;
+}
+
+.tip-text {
+  font-size: 26rpx;
+  color: #ff4757;
+  display: block;
+}
+
+.tip-text.success {
+  color: #2ed573;
+}
+
+.mock-code-tip {
+  margin: 20rpx 0;
+  padding: 20rpx;
+  border: 2rpx dashed #0166a4;
+  border-radius: 12rpx;
+  background: #f0f8ff;
+  text-align: center;
+}
+
+.mock-code-title,
+.mock-code-desc {
+  display: block;
+  color: #5f6b76;
+  font-size: 24rpx;
+}
+
+.mock-code-value {
+  display: block;
+  margin: 8rpx 0;
+  color: #0166a4;
+  font-size: 40rpx;
+  font-weight: bold;
+  letter-spacing: 10rpx;
+}
+
+/* 已验证状态样式 */
+.verified-status {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #2ed573, #17c354);
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(46, 213, 115, 0.2);
+}
+
+.verified-icon {
+  font-size: 48rpx;
+  margin-right: 20rpx;
+  animation: bounce 2s infinite;
+}
+
+.verified-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.verified-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 8rpx;
+}
+
+.verified-email {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4rpx;
+  font-family: 'Courier New', monospace;
+}
+
+.verified-time {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 成功动画 */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6rpx);
+  }
+  60% {
+    transform: translateY(-3rpx);
+  }
+}
+
+/* 已验证状态下的按钮样式调整 */
+.button-group .verify-btn.secondary {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 2rpx solid #e9ecef;
+}
+
+.button-group .verify-btn.secondary:active {
+  background-color: #e9ecef;
+}

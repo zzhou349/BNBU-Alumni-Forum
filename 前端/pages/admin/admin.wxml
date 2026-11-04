@@ -1,0 +1,54 @@
+<view class="admin-page">
+  <view class="main-tabs">
+    <view class="tab {{currentTab === 'reports' ? 'active' : ''}}" data-tab="reports" bindtap="switchTab">帖子举报</view>
+    <view class="tab {{currentTab === 'feedback' ? 'active' : ''}}" data-tab="feedback" bindtap="switchTab">意见反馈</view>
+  </view>
+
+  <view class="status-tabs">
+    <view class="status-chip {{currentStatus === 'pending' ? 'active' : ''}}" data-status="pending" bindtap="switchStatus">待处理</view>
+    <view class="status-chip {{currentStatus === 'all' ? 'active' : ''}}" data-status="all" bindtap="switchStatus">全部</view>
+  </view>
+
+  <view class="error" wx:if="{{errorMessage}}">{{errorMessage}}</view>
+  <view class="loading" wx:if="{{isLoading}}">加载中...</view>
+
+  <block wx:if="{{currentTab === 'reports' && !isLoading}}">
+    <view class="empty" wx:if="{{reports.length === 0}}">暂无举报记录</view>
+    <block wx:for="{{reports}}" wx:key="id">
+      <view class="manage-card">
+        <view class="card-head"><text class="tag">{{item.statusText}}</text><text>{{item.timeText}}</text></view>
+        <view class="title" bindtap="openPost" data-id="{{item.post_id}}" data-status="{{item.post_status}}">{{item.post_title}}</view>
+        <view class="meta">作者：{{item.author_name}} · 举报人：{{item.reporter_name}}</view>
+        <view class="reason">举报原因：{{item.reason}}</view>
+        <view class="meta">帖子状态：{{item.post_status}}</view>
+        <view class="actions" wx:if="{{item.status === 'pending'}}">
+          <button size="mini" class="danger" data-id="{{item.id}}" data-status="reviewed" data-action="hide" bindtap="processReport">隐藏并处理</button>
+          <button size="mini" data-id="{{item.id}}" data-status="dismissed" data-action="none" bindtap="processReport">驳回</button>
+        </view>
+        <view class="actions" wx:if="{{item.post_status === 'hidden'}}">
+          <button size="mini" data-id="{{item.id}}" bindtap="restorePost">恢复帖子</button>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <block wx:if="{{currentTab === 'feedback' && !isLoading}}">
+    <view class="empty" wx:if="{{feedbackList.length === 0}}">暂无反馈记录</view>
+    <block wx:for="{{feedbackList}}" wx:key="id">
+      <view class="manage-card">
+        <view class="card-head"><text class="tag">{{item.statusText}}</text><text>{{item.timeText}}</text></view>
+        <view class="title">{{item.categoryText}}</view>
+        <view class="reason">{{item.content}}</view>
+        <view class="meta">用户：{{item.username || '匿名'}}<text wx:if="{{item.contact}}"> · 联系：{{item.contact}}</text></view>
+        <view class="actions" wx:if="{{item.status === 'pending'}}">
+          <button size="mini" data-id="{{item.id}}" data-status="processing" bindtap="processFeedback">开始处理</button>
+          <button size="mini" class="danger" data-id="{{item.id}}" data-status="resolved" bindtap="processFeedback">标记解决</button>
+          <button size="mini" data-id="{{item.id}}" data-status="dismissed" bindtap="processFeedback">忽略</button>
+        </view>
+        <view class="actions" wx:if="{{item.status === 'processing'}}">
+          <button size="mini" class="danger" data-id="{{item.id}}" data-status="resolved" bindtap="processFeedback">标记解决</button>
+        </view>
+      </view>
+    </block>
+  </block>
+</view>
